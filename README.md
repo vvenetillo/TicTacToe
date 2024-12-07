@@ -64,6 +64,8 @@ DartifactId=ConsoleClear -
 Dversion='1.0.0' -Dpackaging=jar
 ```
 
+O código acima pode ser rodado no Terminal, Git Bash ou Powershell.
+
 Onde há escrito **DIRETÓRIO**, deve ser colocado o diretório do projeto direto na pasta lib.
 
 1. Mova o card que seja desenvolver de _Read_ para _In Progress_ e atribua o seu nome no campo _Assignees_ clicando no nome do card.
