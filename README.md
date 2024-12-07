@@ -11,8 +11,9 @@ Este é um projeto para a Hackathon de 6 a 8 de Dezembro de 2024 para o Programa
 O projeto deve ser consistido nesta distribuição de pastas:
 
 ```
+
 TicTacToe/
-│
+├── lib/
 ├── src/
 │   ├── main/
 │   │   ├── java/
@@ -47,16 +48,50 @@ TicTacToe/
 ├── pom.xml                                         # Arquivo de configuração Maven
 ├── README.md                                       # Documentação inicial do projeto
 └── LICENSE                                         # Licença do projeto
-
 ```
 
 OBS: Pode haver mudanças com o decorrer do desenvolvimento
 
 ## Como tratar o fluxo de desenvolvimento ?
 
-1. Mova o card que seja desenvolver de _Read_ para _In Progress_ e atribua o seu nome no campo _Assignees_
-2. No card, clique em _Convert to issue_, isso gerará uma mudança que será visível e gerenciada pelo lider do projeto, essencial para garantir o fluxo saudável do desenvolvimento.
-3. Crie uma branch noma com o nome do card, por exemplo:
-   se o card se chama "Documentação inicial", a branch se chamará "Documentacao_inicial", isto é necessário para que você trabalhe as suas modificações dentro da aplicação sem intervir nas outras modificações que estão sendo criadas.
-4. No seu projeto, dê o _git pull_ para atualizar a sua branch local e assim trazer a criaão da sua branch remota, mude para ela e começe o desenvolvimento.
+1. Mova o card que seja desenvolver de _Read_ para _In Progress_ e atribua o seu nome no campo _Assignees_ clicando no nome do card.
+   ![](https://i.imgur.com/jj2oK9o.png)
+
+![enter image description here](https://i.imgur.com/pI8DNCh.png)
+
+2. No card, clique em **Convert to issue** e selecione o repositório do projeto, isso gerará uma mudança que será visível e gerenciada pelo líder do projeto, essencial para garantir o fluxo saudável do desenvolvimento.
+
+   ![enter image description here](https://i.imgur.com/5qrWZH6.png)
+
+   ![enter image description here](https://i.imgur.com/cBWyr16.png)
+
+   ![enter image description here](https://i.imgur.com/jt7NcxC.png)
+
+3. Crie uma branch nome com o nome do card, por exemplo:
+   Na aba de branchs, clique em **View all branchs**
+
+   ![enter image description here](https://i.imgur.com/Bbxiicx.png)
+
+   Clicando em **New branch**, você pode estar criando uma nova branch para o projeto.
+
+Exemplo: se o card se chama "Adição da biblioteca de console", a branch se chamará "Adicao_da_biblioteca_de_console", e aponta-la para a branch **development** e clique em **Create new bran ch**, ou seja, a nova branch será criada espelhada na branch de desenvolvimento. Isto é necessário para que você trabalhe as suas modificações dentro da aplicação sem intervir nas outras modificações que estão sendo criadas.
+![enter image description here](https://i.imgur.com/OLWXLLn.png)
+
+4. No seu projeto, dê o **git pull** para atualizar a sua branch local e assim trazer a criação da sua branch remota, mude para ela e comece o desenvolvimento.
+
+   ![enter image description here](https://i.imgur.com/Glztjx6.png)
+
+   ![enter image description here](https://i.imgur.com/DTLIjiN.png)
+
 5. No término do desenvolvimento, faça commits usando Convensão de Commits
+   ![enter image description here](https://i.imgur.com/KE2DM1G.png)
+
+   ![enter image description here](https://i.imgur.com/VsalRh3.png)
+
+6. Quando o código estiver validado, testado localmente, crie um **Pull Request** a partir da sua branch de trabalho:
+   ![enter image description here](https://i.imgur.com/utON8Yo.png)
+
+   Faça as devidas configurações e ponderações a respeito da solicitação, como feito abaixo:
+   ![enter image description here](https://i.imgur.com/BvIsIC6.png)
+
+   e clique em **Create pull request** que o coordenador irá avaliar e testar junto com você a sua implementação.
