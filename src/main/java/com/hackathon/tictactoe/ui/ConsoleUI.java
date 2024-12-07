@@ -16,8 +16,14 @@ public class ConsoleUI {
             System.out.println("3- Sair");
             System.out.print("Escolha uma opção: ");
 
+            String input = scanner.nextLine();
+
             try {
-                escolha = scanner.nextInt();
+                if (input.trim().isEmpty()) {
+                    throw new InputMismatchException("Entrada inválida. Por favor, insira uma opção válida.");
+                }
+
+                escolha = Integer.parseInt(input);
 
                 switch (escolha) {
                     case 1:
@@ -32,9 +38,8 @@ public class ConsoleUI {
                     default:
                         System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
                 }
-            } catch (InputMismatchException e) {
-                System.out.println("Entrada inválida. Por favor, insira um número.");
-                scanner.next();
+            } catch (InputMismatchException | NumberFormatException e) {
+                System.out.println("Entrada inválida. Por favor, insira uma opção válida.");
             }
         }
 
