@@ -1,13 +1,19 @@
 package com.hackathon.tictactoe.game;
 
 public class TicTacToeGame {
+
+    // Método principal que verifica se o jogador venceu
     public static boolean teveGanhador(char[][] tabuleiro, char caractereJogador) {
+        // Usa os métodos auxiliares para verificar as condições de vitória
         return teveGanhadorLinha(tabuleiro, caractereJogador) ||
                 teveGanhadorColuna(tabuleiro, caractereJogador) ||
                 teveGanhadorDiagonalPrincipal(tabuleiro, caractereJogador) ||
                 teveGanhadorDiagonalSecundaria(tabuleiro, caractereJogador);
     }
-    private static boolean teveGanhadorLinha(char[][] tabuleiro, char caractereJogador) {
+
+    // Métodos auxiliares (reaproveitados)
+
+    public static boolean teveGanhadorLinha(char[][] tabuleiro, char caractereJogador) {
         for (int i = 0; i < tabuleiro.length; i++) {
             boolean venceu = true;
             for (int j = 0; j < tabuleiro[i].length; j++) {
@@ -20,7 +26,8 @@ public class TicTacToeGame {
         }
         return false;
     }
-    private static boolean teveGanhadorColuna(char[][] tabuleiro, char caractereJogador) {
+
+    public static boolean teveGanhadorColuna(char[][] tabuleiro, char caractereJogador) {
         for (int j = 0; j < tabuleiro[0].length; j++) {
             boolean venceu = true;
             for (int i = 0; i < tabuleiro.length; i++) {
@@ -33,7 +40,8 @@ public class TicTacToeGame {
         }
         return false;
     }
-    private static boolean teveGanhadorDiagonalPrincipal(char[][] tabuleiro, char caractereJogador) {
+
+    public static boolean teveGanhadorDiagonalPrincipal(char[][] tabuleiro, char caractereJogador) {
         for (int i = 0; i < tabuleiro.length; i++) {
             if (tabuleiro[i][i] != caractereJogador) {
                 return false;
@@ -42,7 +50,7 @@ public class TicTacToeGame {
         return true;
     }
 
-    private static boolean teveGanhadorDiagonalSecundaria(char[][] tabuleiro, char caractereJogador) {
+    public static boolean teveGanhadorDiagonalSecundaria(char[][] tabuleiro, char caractereJogador) {
         int n = tabuleiro.length;
         for (int i = 0; i < n; i++) {
             if (tabuleiro[i][n - 1 - i] != caractereJogador) {
@@ -53,11 +61,13 @@ public class TicTacToeGame {
     }
 
     public static void main(String[] args) {
+        // Teste do método principal com o uso dos auxiliares
         char[][] tabuleiro = {
                 {'X', 'X', 'X'},
                 {'O', 'O', ' '},
                 {' ', 'O', ' '}
         };
+
         System.out.println("Jogador X venceu? " + teveGanhador(tabuleiro, 'X')); // true
         System.out.println("Jogador O venceu? " + teveGanhador(tabuleiro, 'O')); // false
     }
