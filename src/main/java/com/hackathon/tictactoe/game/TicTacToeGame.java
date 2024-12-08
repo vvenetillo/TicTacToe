@@ -1,44 +1,82 @@
 package com.hackathon.tictactoe.game;
 
+import net.jorgedev.ConsoleClear;
+
 import java.util.Scanner;
+
 public class TicTacToeGame {
+   public static void exibirTabuleiro(char[][] tabuleiro) {
+      ConsoleClear.run();
 
-    private static final char[] CARACTERES_IDENTIFICADORES_ACEITOS = {'X', 'O'};
+      System.out.println("Tabuleiro:");
+      for (int i = 0; i < tabuleiro.length; i++) {
+         for (int j = 0; j < tabuleiro[i].length; j++) {
+            System.out.print("[" + tabuleiro[i][j] + "]");
+         }
+         System.out.println();
+      }
+   }
 
-    public static char obterCaractereComputador(Scanner teclado, char caractereUsuario) {
-        char caractereComputador;
+   public static void exibirVitoriaUsuario() {
+      System.out.println("O jogador venceu!");
 
-        while (true) { // Loop para garantir entrada válida
-            System.out.print("Escolha o caractere para o computador (X ou O): ");
-            caractereComputador = teclado.next().charAt(0);
+      System.out.println(" _____");
+      System.out.println(" |^ ^|");
+      System.out.println(" /   \\");
+      System.out.println(" \\ U /");
+      System.out.println(" |||||");
 
+   }
 
-            boolean valido = false;
-            for (char c : CARACTERES_IDENTIFICADORES_ACEITOS) {
-                if (c == caractereComputador && c != caractereUsuario) {
-                    valido = true;
-                    break;
-                }
+   public static char obterCaractereUsuario(Scanner teclado) {
+      char caractereUsuario;
+
+      while (true) {
+         System.out.print("Escolha o caractere que deseja usar (X ou O): ");
+         caractereUsuario = teclado.next().charAt(0);
+
+         boolean valido = false;
+         for (char c : CARACTERES_IDENTIFICADORES_ACEITOS) {
+            if (c == caractereUsuario) {
+               valido = true;
+               break;
             }
+         }
 
-            if (valido) {
-                break;
-            } else {
-                System.out.println("Caractere inválido ou já escolhido pelo usuário! Por favor, tente novamente.");
+         if (valido) {
+            break;
+         } else {
+            System.out.println("Caractere inválido! Por favor, escolha apenas X ou O.");
+         }
+      }
+
+      return caractereUsuario;
+   }
+
+   private static final char[] CARACTERES_IDENTIFICADORES_ACEITOS = { 'X', 'O' };
+
+   public static char obterCaractereComputador(Scanner teclado, char caractereUsuario) {
+      char caractereComputador;
+
+      while (true) {
+         System.out.print("Escolha o caractere para o computador (X ou O): ");
+         caractereComputador = teclado.next().charAt(0);
+
+         boolean valido = false;
+         for (char c : CARACTERES_IDENTIFICADORES_ACEITOS) {
+            if (c == caractereComputador && c != caractereUsuario) {
+               valido = true;
+               break;
             }
-        }
+         }
 
-        return caractereComputador;
-    }
+         if (valido) {
+            break;
+         } else {
+            System.out.println("Caractere inválido ou já escolhido pelo usuário! Por favor, tente novamente.");
+         }
+      }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Escolha o caractere do usuário (X ou O): ");
-        char caractereUsuario = scanner.next().charAt(0);
-
-        char caractereComputador = obterCaractereComputador(scanner, caractereUsuario);
-        System.out.println("Usuário escolheu o caractere: " + caractereUsuario);
-        System.out.println("Computador escolheu o caractere: " + caractereComputador);
-    }
+      return caractereComputador;
+   }
 }
