@@ -20,13 +20,14 @@ public class TicTacToeGame {
                     break;
                 }
             }
-
+            
             if (valido) {
                 break;
             } else {
                 System.out.println("Caractere inválido! Por favor, escolha apenas X ou O.");
             }
         }
+
         return caractereUsuario;
     }
 
