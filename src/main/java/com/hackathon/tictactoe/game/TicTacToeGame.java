@@ -1,7 +1,7 @@
 package com.hackathon.tictactoe.game;
 
 public class TicTacToeGame {
-
+    
     public static char[][] inicializarTabuleiro(char[][] tabuleiro) {
         for (int i = 0; i < tabuleiro.length; i++) {
             for (int j = 0; j < tabuleiro[i].length; j++) {
@@ -12,6 +12,7 @@ public class TicTacToeGame {
     }
 
     public static void main(String[] args) {
+
         char[][] tabuleiro = new char[3][3];
         inicializarTabuleiro(tabuleiro);
 
