@@ -1,7 +1,6 @@
 package com.hackathon.tictactoe.game;
 
 import java.util.Scanner;
-
 public class TicTacToeGame {
 
     private static final char[] CARACTERES_IDENTIFICADORES_ACEITOS = {'X', 'O'};
@@ -12,6 +11,7 @@ public class TicTacToeGame {
         while (true) { // Loop para garantir entrada válida
             System.out.print("Escolha o caractere para o computador (X ou O): ");
             caractereComputador = teclado.next().charAt(0);
+
 
             boolean valido = false;
             for (char c : CARACTERES_IDENTIFICADORES_ACEITOS) {
@@ -35,10 +35,9 @@ public class TicTacToeGame {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Escolha o caractere do usuário (X ou O): ");
-
         char caractereUsuario = scanner.next().charAt(0);
+
         char caractereComputador = obterCaractereComputador(scanner, caractereUsuario);
-        
         System.out.println("Usuário escolheu o caractere: " + caractereUsuario);
         System.out.println("Computador escolheu o caractere: " + caractereComputador);
     }
