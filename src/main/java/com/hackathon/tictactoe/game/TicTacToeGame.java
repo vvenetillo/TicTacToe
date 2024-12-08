@@ -117,4 +117,22 @@ public class TicTacToeGame {
       teste.nextLine();
       teste.close();
    }
+
+   public static String retornarPosicoesLivres(char[][] tabuleiro) {
+      StringBuilder posicoesLivres = new StringBuilder();
+
+      for (int i = 0; i < tabuleiro.length; i++) {
+         for (int j = 0; j < tabuleiro[i].length; j++) {
+            if (tabuleiro[i][j] == ' ') {
+               posicoesLivres.append(i).append(j).append(";");
+            }
+         }
+      }
+
+      if (posicoesLivres.length() > 0) {
+         posicoesLivres.setLength(posicoesLivres.length() - 1);
+      }
+
+      return posicoesLivres.toString();
+   }
 }
