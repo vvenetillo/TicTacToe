@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # TicTacToe
 
 O JOGO DA VELHA é também um jogo popular e pode ser conhecido por outros nomes diferentes como: jogo do galo ou três em linha.
@@ -112,4 +111,3 @@ Exemplo: se o card se chama "Adição da biblioteca de console", a branch se cha
    e clique em **Create pull request** que o coordenador irá avaliar e testar junto com você a sua implementação.
 =======
 # TicTacToe
->>>>>>> parent of 021fc07 (Merge pull request #28 from Jorgeluisreis/23-exibir-vitória-do-usuário)
