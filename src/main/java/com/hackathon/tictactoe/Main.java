@@ -1,12 +1,11 @@
 package com.hackathon.tictactoe;
 
 import com.hackathon.tictactoe.ui.ConsoleUI;
-import net.jorgedev.*;
 
 public class Main {
-    public static void main(String[] args) {
-        ConsoleClear.run();
-        System.out.println("Hello World!");
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println(ConsoleUI.splashScreen());
+        Thread.sleep(5000);
         ConsoleUI.exibirMenu();
     }
 }
