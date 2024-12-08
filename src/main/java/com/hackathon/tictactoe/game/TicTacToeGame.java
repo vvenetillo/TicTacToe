@@ -1,20 +1,98 @@
 package com.hackathon.tictactoe.game;
 
+import net.jorgedev.ConsoleClear;
+
+import java.util.Scanner;
+
 public class TicTacToeGame {
+   public static void exibirTabuleiro(char[][] tabuleiro) {
+      ConsoleClear.run();
 
-    public static int[] converterJogadaStringParaVetorInt(String jogada) {
-        int[] vetorJogada = new int[2];
+      System.out.println("Tabuleiro:");
+      for (int i = 0; i < tabuleiro.length; i++) {
+         for (int j = 0; j < tabuleiro[i].length; j++) {
+            System.out.print("[" + tabuleiro[i][j] + "]");
+         }
+         System.out.println();
+      }
+   }
 
-        vetorJogada[0] = Character.getNumericValue(jogada.charAt(0));
-        vetorJogada[1] = Character.getNumericValue(jogada.charAt(1));
+   public static void exibirVitoriaUsuario() {
+      System.out.println("O jogador venceu!");
 
-        return vetorJogada;
-    }
+      System.out.println(" _____");
+      System.out.println(" |^ ^|");
+      System.out.println(" /   \\");
+      System.out.println(" \\ U /");
+      System.out.println(" |||||");
 
-    public static void main(String[] args) {
-        String jogada = "12"; // Linha 1, Coluna 2
-        int[] vetor = converterJogadaStringParaVetorInt(jogada);
-        
-        System.out.println("Jogada convertida: [" + vetor[0] + ", " + vetor[1] + "]");
-    }
+   }
+
+   public static char obterCaractereUsuario(Scanner teclado) {
+      char caractereUsuario;
+
+      while (true) {
+         System.out.print("Escolha o caractere que deseja usar (X ou O): ");
+         caractereUsuario = teclado.next().charAt(0);
+
+         boolean valido = false;
+         for (char c : CARACTERES_IDENTIFICADORES_ACEITOS) {
+            if (c == caractereUsuario) {
+               valido = true;
+               break;
+            }
+         }
+
+         if (valido) {
+            break;
+         } else {
+            System.out.println("Caractere inválido! Por favor, escolha apenas X ou O.");
+         }
+      }
+
+      return caractereUsuario;
+   }
+
+   private static final char[] CARACTERES_IDENTIFICADORES_ACEITOS = { 'X', 'O' };
+
+   public static char obterCaractereComputador(Scanner teclado, char caractereUsuario) {
+      char caractereComputador;
+
+      while (true) {
+         System.out.print("Escolha o caractere para o computador (X ou O): ");
+         caractereComputador = teclado.next().charAt(0);
+
+         boolean valido = false;
+         for (char c : CARACTERES_IDENTIFICADORES_ACEITOS) {
+            if (c == caractereComputador && c != caractereUsuario) {
+               valido = true;
+               break;
+            }
+         }
+
+         if (valido) {
+            break;
+         } else {
+            System.out.println("Caractere inválido ou já escolhido pelo usuário! Por favor, tente novamente.");
+         }
+      }
+
+      return caractereComputador;
+   }
+
+   public static int[] converterJogadaStringParaVetorInt(String jogada) {
+      int[] vetorJogada = new int[2];
+
+      vetorJogada[0] = Character.getNumericValue(jogada.charAt(0));
+      vetorJogada[1] = Character.getNumericValue(jogada.charAt(1));
+
+      return vetorJogada;
+   }
+
+   public static void main(String[] args) {
+      String jogada = "12"; // Linha 1, Coluna 2
+      int[] vetor = converterJogadaStringParaVetorInt(jogada);
+
+      System.out.println("Jogada convertida: [" + vetor[0] + ", " + vetor[1] + "]");
+   }
 }
