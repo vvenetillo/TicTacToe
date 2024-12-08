@@ -4,6 +4,8 @@ import net.jorgedev.ConsoleClear;
 
 import java.util.Scanner;
 
+import com.hackathon.tictactoe.ui.ConsoleUI;
+
 public class TicTacToeGame {
    public static void exibirTabuleiro(char[][] tabuleiro) {
       ConsoleClear.run();
@@ -89,10 +91,30 @@ public class TicTacToeGame {
       return vetorJogada;
    }
 
-   public static void main(String[] args) {
-      String jogada = "12"; // Linha 1, Coluna 2
-      int[] vetor = converterJogadaStringParaVetorInt(jogada);
+   public static char[][] inicializarTabuleiro(char[][] tabuleiro) {
+      for (int i = 0; i < tabuleiro.length; i++) {
+         for (int j = 0; j < tabuleiro[i].length; j++) {
+            tabuleiro[i][j] = ' ';
+         }
+      }
+      return tabuleiro;
+   }
 
-      System.out.println("Jogada convertida: [" + vetor[0] + ", " + vetor[1] + "]");
+   public static void exibirTabuleiro() {
+      Scanner teste = new Scanner(System.in);
+
+      ConsoleClear.run();
+      char[][] tabuleiro = new char[3][3];
+      inicializarTabuleiro(tabuleiro);
+
+      System.out.println(ConsoleUI.Logo());
+      for (char[] linha : tabuleiro) {
+         for (char celula : linha) {
+            System.out.print("[" + celula + "]");
+         }
+         System.out.println();
+      }
+      teste.nextLine();
+      teste.close();
    }
 }
