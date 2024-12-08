@@ -4,9 +4,9 @@
 *.ear
 
 # Diretórios de build
-/build/
-/bin/
-/target/
+build/
+bin/
+target/
 
 # Diretórios de IDEs
 .vscode/
