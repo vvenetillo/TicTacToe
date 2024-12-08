@@ -54,6 +54,20 @@ OBS: Pode haver mudanças com o decorrer do desenvolvimento
 
 ## Como tratar o fluxo de desenvolvimento ?
 
+OBS: é estritamente necessário fazer a instalação do [Maven](https://dicasdeprogramacao.com.br/como-instalar-o-maven-no-windows/) para esta aplicação funcionar, além de instalar manualmente a biblioteca ConsoleClear.
+
+```
+mvn install:install-file -Dfile="DIRETÓRIO\ConsoleClear-1.0.0.jar" -DgroupId='net.jorgedev' -
+
+DartifactId=ConsoleClear -
+
+Dversion='1.0.0' -Dpackaging=jar
+```
+
+O código acima pode ser rodado no Terminal, Git Bash ou Powershell.
+
+Onde há escrito **DIRETÓRIO**, deve ser colocado o diretório do projeto direto na pasta lib.
+
 1. Mova o card que seja desenvolver de _Read_ para _In Progress_ e atribua o seu nome no campo _Assignees_ clicando no nome do card.
    ![](https://i.imgur.com/jj2oK9o.png)
 
@@ -95,3 +109,5 @@ Exemplo: se o card se chama "Adição da biblioteca de console", a branch se cha
    ![enter image description here](https://i.imgur.com/BvIsIC6.png)
 
    e clique em **Create pull request** que o coordenador irá avaliar e testar junto com você a sua implementação.
+=======
+# TicTacToe

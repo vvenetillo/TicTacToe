@@ -8,6 +8,17 @@ import net.jorgedev.ConsoleClear;
 
 public class TicTacToeGame {
 
+   public static void exibirVitoriaUsuario() {
+      System.out.println("O jogador venceu!");
+
+      System.out.println(" _____");
+      System.out.println(" |^ ^|");
+      System.out.println(" /   \\");
+      System.out.println(" \\ U /");
+      System.out.println(" |||||");
+
+   }
+
    public static char[][] inicializarTabuleiro(char[][] tabuleiro) {
       for (int i = 0; i < tabuleiro.length; i++) {
          for (int j = 0; j < tabuleiro[i].length; j++) {

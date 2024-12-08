@@ -92,5 +92,6 @@ public class ConsoleUI {
     private static void voltar(Scanner scanner) {
         System.out.println("\nPressione qualquer tecla para voltar ao Menu...");
         scanner.nextLine();
+        voltar(new Scanner(System.in));
     }
 }
