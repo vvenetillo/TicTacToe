@@ -2,17 +2,12 @@ package com.hackathon.tictactoe.game;
 
 public class TicTacToeGame {
 
-    // Método principal que verifica se o jogador venceu
     public static boolean teveGanhador(char[][] tabuleiro, char caractereJogador) {
-        // Usa os métodos auxiliares para verificar as condições de vitória
         return teveGanhadorLinha(tabuleiro, caractereJogador) ||
                 teveGanhadorColuna(tabuleiro, caractereJogador) ||
                 teveGanhadorDiagonalPrincipal(tabuleiro, caractereJogador) ||
                 teveGanhadorDiagonalSecundaria(tabuleiro, caractereJogador);
     }
-
-    // Métodos auxiliares (reaproveitados)
-
     public static boolean teveGanhadorLinha(char[][] tabuleiro, char caractereJogador) {
         for (int i = 0; i < tabuleiro.length; i++) {
             boolean venceu = true;
@@ -26,7 +21,6 @@ public class TicTacToeGame {
         }
         return false;
     }
-
     public static boolean teveGanhadorColuna(char[][] tabuleiro, char caractereJogador) {
         for (int j = 0; j < tabuleiro[0].length; j++) {
             boolean venceu = true;
@@ -40,7 +34,6 @@ public class TicTacToeGame {
         }
         return false;
     }
-
     public static boolean teveGanhadorDiagonalPrincipal(char[][] tabuleiro, char caractereJogador) {
         for (int i = 0; i < tabuleiro.length; i++) {
             if (tabuleiro[i][i] != caractereJogador) {
@@ -49,7 +42,6 @@ public class TicTacToeGame {
         }
         return true;
     }
-
     public static boolean teveGanhadorDiagonalSecundaria(char[][] tabuleiro, char caractereJogador) {
         int n = tabuleiro.length;
         for (int i = 0; i < n; i++) {
@@ -59,9 +51,7 @@ public class TicTacToeGame {
         }
         return true;
     }
-
     public static void main(String[] args) {
-        // Teste do método principal com o uso dos auxiliares
         char[][] tabuleiro = {
                 {'X', 'X', 'X'},
                 {'O', 'O', ' '},
