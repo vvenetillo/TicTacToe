@@ -1,10 +1,10 @@
 package com.hackathon.tictactoe.game;
 
-import net.jorgedev.ConsoleClear;
-
 import java.util.Scanner;
 
 import com.hackathon.tictactoe.ui.ConsoleUI;
+
+import net.jorgedev.ConsoleClear;
 
 public class TicTacToeGame {
    public static void exibirTabuleiro(char[][] tabuleiro) {
@@ -90,6 +90,15 @@ public class TicTacToeGame {
 
       return vetorJogada;
    }
+
+   public static void exibirEmpate()  {
+      System.out.println("Ocorreu um empate!");
+  
+      System.out.println(" _______       _______ ");
+      System.out.println("|       |     |       |");
+      System.out.println("|   0   |  x  |   0   |");
+      System.out.println("|_______|     |_______|");
+  }
 
    public static char[][] inicializarTabuleiro(char[][] tabuleiro) {
       for (int i = 0; i < tabuleiro.length; i++) {
