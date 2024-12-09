@@ -105,13 +105,9 @@ Exemplo: se o card se chama "Adição da biblioteca de console", a branch se cha
 6. Quando o código estiver validado, testado localmente, crie um **Pull Request** a partir da sua branch de trabalho:
    ![image](https://i.imgur.com/utON8Yo.png)
 
-   Faça as devidas configurações e ponderações a respeito da solicitação, como feito abaixo:
-   ![image](https://i.imgur.com/BvIsIC6.png)
-
 7. em **compare** é a sua branch que você trabalhou e a **base** é para qual você quer atribuir estas mudanças, no caso é a **development**
    ![image](https://github.com/user-attachments/assets/b97bfe9b-c31a-4ca4-b037-97386872d412)
 
+8. Faça as devidas configurações e ponderações a respeito da solicitação, como feito abaixo:
+   ![image](https://i.imgur.com/BvIsIC6.png)
 
-   e clique em **Create pull request** que o coordenador irá avaliar e testar junto com você a sua implementação.
-=======
-# TicTacToe
