@@ -191,4 +191,21 @@ public class TicTacToeGame {
       }
       return true;
    }
+
+   public static void main(String[] args) {
+      char[][] tabuleiro = {
+            { 'X', 'X', 'X' },
+            { 'O', 'O', ' ' },
+            { ' ', 'O', ' ' }
+      };
+
+      System.out.println("Jogador X venceu em linha? " + teveGanhadorLinha(tabuleiro, 'X'));
+      System.out.println("Jogador O venceu em linha? " + teveGanhadorLinha(tabuleiro, 'O'));
+
+      System.out.println("Jogador X venceu em coluna? " + teveGanhadorColuna(tabuleiro, 'X'));
+      System.out.println("Jogador O venceu em coluna? " + teveGanhadorColuna(tabuleiro, 'O'));
+
+      System.out.println("Jogador X venceu na diagonal principal? " + teveGanhadorDiagonalPrincipal(tabuleiro, 'X'));
+      System.out.println("Jogador O venceu na diagonal secundária? " + teveGanhadorDiagonalSecundaria(tabuleiro, 'O'));
+   }
 }
