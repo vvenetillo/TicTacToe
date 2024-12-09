@@ -1,11 +1,8 @@
 package com.hackathon.tictactoe.game;
 
 import java.util.Random;
-
 import java.util.Scanner;
-
 import com.hackathon.tictactoe.ui.ConsoleUI;
-
 import net.jorgedev.ConsoleClear;
 
 public class TicTacToeGame {
@@ -19,7 +16,6 @@ public class TicTacToeGame {
 
    public static void exibirEmpate() {
       System.out.println("Ocorreu um empate!");
-
       System.out.println(" _______       _______ ");
       System.out.println("|       |     |       |");
       System.out.println("|   0   |  x  |   0   |");
@@ -63,19 +59,17 @@ public class TicTacToeGame {
             }
          }
       }
-
       if (posicoesLivres.length() > 0) {
          posicoesLivres.setLength(posicoesLivres.length() - 1);
       }
-
       return posicoesLivres.toString();
    }
 
    public static boolean teveGanhador(char[][] tabuleiro, char caractereJogador) {
       return teveGanhadorLinha(tabuleiro, caractereJogador) ||
-            teveGanhadorColuna(tabuleiro, caractereJogador) ||
-            teveGanhadorDiagonalPrincipal(tabuleiro, caractereJogador) ||
-            teveGanhadorDiagonalSecundaria(tabuleiro, caractereJogador);
+              teveGanhadorColuna(tabuleiro, caractereJogador) ||
+              teveGanhadorDiagonalPrincipal(tabuleiro, caractereJogador) ||
+              teveGanhadorDiagonalSecundaria(tabuleiro, caractereJogador);
    }
 
    public static boolean teveGanhadorLinha(char[][] tabuleiro, char caractereJogador) {
@@ -136,5 +130,39 @@ public class TicTacToeGame {
       String jogadaSorteada = jogadasLivres[indiceSorteado];
 
       return converterJogadaStringParaVetorInt(jogadaSorteada);
+   }
+   public static boolean jogadaValida(String posicoesLivres, int linha, int coluna) {
+      String jogada = linha + "" + coluna;
+      return posicoesLivres.contains(jogada);
+   }
+
+   public static int[] obterJogadaUsuario(String posicoesLivres, Scanner teclado) {
+      int[] jogadaUsuario = new int[2];
+
+      while (true) {
+         try {
+            System.out.println("Digite a linha e a coluna que deseja jogar (separados por espaço):");
+            String entrada = teclado.nextLine().trim();
+            String[] valores = entrada.split(" ");
+
+            if (valores.length != 2) {
+               System.out.println("Entrada inválida! Você deve digitar dois números separados por espaço.");
+               continue;
+            }
+            int linha = Integer.parseInt(valores[0]) - 1;
+            int coluna = Integer.parseInt(valores[1]) - 1;
+
+            if (!jogadaValida(posicoesLivres, linha, coluna)) {
+               System.out.println("Jogada inválida! A posição escolhida já está ocupada ou não existe.");
+               continue;
+            }
+            jogadaUsuario[0] = linha;
+            jogadaUsuario[1] = coluna;
+            break;
+         } catch (NumberFormatException e) {
+            System.out.println("Entrada inválida! Você deve digitar números.");
+         }
+      }
+      return jogadaUsuario;
    }
 }
