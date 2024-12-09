@@ -2,9 +2,7 @@ package com.hackathon.tictactoe.game;
 
 import java.util.Random;
 import java.util.Scanner;
-
 import com.hackathon.tictactoe.ui.ConsoleUI;
-
 import net.jorgedev.ConsoleClear;
 
 public class TicTacToeGame {
@@ -61,11 +59,9 @@ public class TicTacToeGame {
             }
          }
       }
-
       if (posicoesLivres.length() > 0) {
          posicoesLivres.setLength(posicoesLivres.length() - 1);
       }
-
       return posicoesLivres.toString();
    }
 
