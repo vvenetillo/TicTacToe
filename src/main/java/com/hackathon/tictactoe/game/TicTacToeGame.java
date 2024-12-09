@@ -2,7 +2,7 @@ package com.hackathon.tictactoe.game;
 
 public class TicTacToeGame {
 
-private void processUserMove() {
+private void processarAVezDoUsuario() {
     // Obtém a jogada do usuário
     int move = ui.getPlayerMove();  
     
