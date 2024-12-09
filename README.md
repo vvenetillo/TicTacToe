@@ -111,3 +111,5 @@ Exemplo: se o card se chama "Adição da biblioteca de console", a branch se cha
 8. Faça as devidas configurações e ponderações a respeito da solicitação, como feito abaixo:
    ![image](https://i.imgur.com/BvIsIC6.png)
 
+Com tudo feito, aperte em **create pull request** e aguarde a avaliação.
+
