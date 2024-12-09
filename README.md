@@ -108,7 +108,7 @@ Exemplo: se o card se chama "Adição da biblioteca de console", a branch se cha
    Faça as devidas configurações e ponderações a respeito da solicitação, como feito abaixo:
    ![image](https://i.imgur.com/BvIsIC6.png)
 
-7. em **compare** é a sua branch que você trabalhou e a base é para qual você quer atribuir estas mudanças, no caso é a **development**
+7. em **compare** é a sua branch que você trabalhou e a **base** é para qual você quer atribuir estas mudanças, no caso é a **development**
    ![image](https://github.com/user-attachments/assets/b97bfe9b-c31a-4ca4-b037-97386872d412)
 
 
