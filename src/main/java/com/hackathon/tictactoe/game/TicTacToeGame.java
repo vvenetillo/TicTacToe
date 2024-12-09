@@ -2,7 +2,7 @@ package com.hackathon.tictactoe.game;
 
 public class TicTacToeGame {
 
-    private void processComputerMove() {
+    private void processarAVezDoComputador() {
         // O computador escolhe a jogada automaticamente
         int move = getComputerMove();  
         board.makeMove(currentPlayer, move);  // Realiza a jogada do computador
