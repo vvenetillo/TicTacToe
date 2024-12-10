@@ -189,4 +189,9 @@ public class TicTacToeGame {
          System.out.println("Jogada inválida. Tente novamente.");
       }
    }
+
+   public static char[][] retornarTabuleiroAtualizado(char[][] tabuleiro, int[] jogada, char caractereJogador) {
+      tabuleiro[jogada[0]][jogada[1]] = caractereJogador;
+      return tabuleiro;
+   }
 }
