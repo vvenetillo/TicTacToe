@@ -67,9 +67,9 @@ public class TicTacToeGame {
 
    public static boolean teveGanhador(char[][] tabuleiro, char caractereJogador) {
       return teveGanhadorLinha(tabuleiro, caractereJogador) ||
-              teveGanhadorColuna(tabuleiro, caractereJogador) ||
-              teveGanhadorDiagonalPrincipal(tabuleiro, caractereJogador) ||
-              teveGanhadorDiagonalSecundaria(tabuleiro, caractereJogador);
+            teveGanhadorColuna(tabuleiro, caractereJogador) ||
+            teveGanhadorDiagonalPrincipal(tabuleiro, caractereJogador) ||
+            teveGanhadorDiagonalSecundaria(tabuleiro, caractereJogador);
    }
 
    public static boolean teveGanhadorLinha(char[][] tabuleiro, char caractereJogador) {
@@ -131,6 +131,7 @@ public class TicTacToeGame {
 
       return converterJogadaStringParaVetorInt(jogadaSorteada);
    }
+
    public static boolean jogadaValida(String posicoesLivres, int linha, int coluna) {
       String jogada = linha + "" + coluna;
       return posicoesLivres.contains(jogada);
@@ -164,5 +165,13 @@ public class TicTacToeGame {
          }
       }
       return jogadaUsuario;
+   }
+
+   private void processarAVezDoComputador() {
+      int jogada = obterJogadaComputador();
+      if (jogada != -1) {
+         tabuleiro[jogada] = jogadorAtual;
+         exibirTabuleiro();
+      }
    }
 }
