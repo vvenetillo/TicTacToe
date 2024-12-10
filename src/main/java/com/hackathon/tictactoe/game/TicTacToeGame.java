@@ -1,7 +1,6 @@
 package com.hackathon.tictactoe.game;
 
 import java.util.Random;
-
 import java.util.Scanner;
 
 import com.hackathon.tictactoe.ui.ConsoleUI;
@@ -137,4 +136,18 @@ public class TicTacToeGame {
 
       return converterJogadaStringParaVetorInt(jogadaSorteada);
    }
+
+   static boolean teveEmapte(char[][] tabuleiro) {
+      for (int i = 0; i < tabuleiro.length; i++){
+         for (int j  = 0; j < tabuleiro[i].length; j++){
+
+            if (tabuleiro[i][j] == ' ') {
+               return false;
+
+            }
+         }
+      }
+      return true;
+   }
 }
+
