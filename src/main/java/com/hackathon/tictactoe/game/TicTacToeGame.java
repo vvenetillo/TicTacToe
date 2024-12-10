@@ -194,4 +194,9 @@ public class TicTacToeGame {
       tabuleiro[jogada[0]][jogada[1]] = caractereJogador;
       return tabuleiro;
    }
+
+   static boolean jogadaValida(String posicoesLivres, int linha, int coluna) {
+      String posicao = linha + "," + coluna;
+      return posicoesLivres.contains(posicao);
+   }
 }
