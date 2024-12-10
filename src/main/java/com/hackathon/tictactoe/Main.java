@@ -1,6 +1,5 @@
 package com.hackathon.tictactoe;
 
-import com.hackathon.tictactoe.game.TicTacToeGame;
 import com.hackathon.tictactoe.ui.ConsoleUI;
 
 public class Main {
@@ -8,6 +7,5 @@ public class Main {
         System.out.println(ConsoleUI.splashScreen());
         Thread.sleep(5000);
         ConsoleUI.exibirMenu();
-        TicTacToeGame.exibirVitoriaUsuario();
     }
 }

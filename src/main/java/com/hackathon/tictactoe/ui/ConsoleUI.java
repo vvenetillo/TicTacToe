@@ -7,7 +7,7 @@ import net.jorgedev.ConsoleClear;
 
 public class ConsoleUI {
 
-    static String Logo() {
+    public static String Logo() {
         String asciiArt = """
                 ████████ ██  ██████ ████████  █████   ██████ ████████  ██████  ███████ 
                    ██    ██ ██         ██    ██   ██ ██         ██    ██    ██ ██      
