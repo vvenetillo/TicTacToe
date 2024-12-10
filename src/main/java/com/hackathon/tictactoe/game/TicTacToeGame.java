@@ -174,4 +174,19 @@ public class TicTacToeGame {
          exibirTabuleiro();
       }
    }
+
+   private void processarVezDoUsuario() {
+      Scanner scanner = new Scanner(System.in);
+      int jogada;
+
+      System.out.println("Vez do jogador " + jogadorAtual + ". Digite uma posição (0 a 8): ");
+      jogada = scanner.nextInt();
+
+      if (jogada >= 0 && jogada < 9 && tabuleiro[jogada] == ' ') {
+         tabuleiro[jogada] = jogadorAtual;
+         exibirTabuleiro();
+      } else {
+         System.out.println("Jogada inválida. Tente novamente.");
+      }
+   }
 }
