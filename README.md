@@ -32,7 +32,7 @@ O **TicTacToe** é um projeto colaborativo desenvolvido em uma Hackathon, com o 
 ## 🛠️ Tecnologias Utilizadas
 
 - ![Java](https://img.shields.io/badge/Java-21-blue) - Linguagem de programação utilizada
-- ![Maven](https://img.shields.io/badge/Maven-3.8-blue) - Gerenciador de dependências
+- ![Maven](https://img.shields.io/badge/Maven-4.0-blue) - Gerenciador de dependências
 - ![CLI](https://img.shields.io/badge/CLI-Interface-Informática) - Interface de linha de comando utilizada para interação com o jogo
 
 ## 🌐 Funcionalidades
@@ -118,4 +118,4 @@ mvn install:install-file -Dfile="DIRETÓRIO\lib\ConsoleClear-1.0.0.jar" -DgroupI
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](https://github.com/SeuUsername/TicTacToe/blob/main/LICENSE) para mais detalhes.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](https://github.com/JorgeluisReis/TicTacToe/blob/main/LICENSE) para mais detalhes.
