@@ -55,7 +55,7 @@ public class ConsoleUI {
                         - Controle de versionamento: Git e Gitflow
 
                         ### Membros do Grupo 6 ###
-                        - Jorge Luis: Líder técnico
+                        - Jorge Luis: Líder Técnico
                         - Victor Venetillo: Líder People
                         - Arthur Ramalho
                         - Gilvan Ribeiro
