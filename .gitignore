@@ -2,6 +2,11 @@
 *.class
 *.war
 *.ear
+TicTacToe.xml
+*.ico
+*.exe
+launch4j.txt
+dependency-reduced-pom.xml
 
 # Diretórios de build
 build/
