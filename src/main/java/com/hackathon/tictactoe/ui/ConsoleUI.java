@@ -3,8 +3,6 @@ package com.hackathon.tictactoe.ui;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import com.hackathon.tictactoe.game.TicTacToeGame;
-
 import net.jorgedev.ConsoleClear;
 
 public class ConsoleUI {
@@ -61,7 +59,7 @@ public class ConsoleUI {
 
                 switch (escolha) {
                     case 1:
-                        TicTacToeGame.exibirTabuleiro();
+                        iniciarJogo();
                         break;
                     case 2:
                         sobreOJogo();
@@ -81,6 +79,10 @@ public class ConsoleUI {
         scanner.close();
     }
 
+    static void iniciarJogo() {
+        System.out.println("Jogo iniciado!");
+    }
+
     static void sobreOJogo() {
         ConsoleClear.run();
         System.out.println(Logo());
@@ -92,6 +94,5 @@ public class ConsoleUI {
     private static void voltar(Scanner scanner) {
         System.out.println("\nPressione qualquer tecla para voltar ao Menu...");
         scanner.nextLine();
-        voltar(new Scanner(System.in));
     }
 }

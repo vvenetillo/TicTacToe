@@ -2,9 +2,7 @@ package com.hackathon.tictactoe.game;
 
 import java.util.Random;
 import java.util.Scanner;
-
 import com.hackathon.tictactoe.ui.ConsoleUI;
-
 import net.jorgedev.ConsoleClear;
 
 public class TicTacToeGame {
@@ -18,7 +16,6 @@ public class TicTacToeGame {
 
    public static void exibirEmpate() {
       System.out.println("Ocorreu um empate!");
-
       System.out.println(" _______       _______ ");
       System.out.println("|       |     |       |");
       System.out.println("|   0   |  x  |   0   |");
@@ -62,11 +59,9 @@ public class TicTacToeGame {
             }
          }
       }
-
       if (posicoesLivres.length() > 0) {
          posicoesLivres.setLength(posicoesLivres.length() - 1);
       }
-
       return posicoesLivres.toString();
    }
 
@@ -137,9 +132,72 @@ public class TicTacToeGame {
       return converterJogadaStringParaVetorInt(jogadaSorteada);
    }
 
+   public static boolean jogadaValida(String posicoesLivres, int linha, int coluna) {
+      String jogada = linha + "" + coluna;
+      return posicoesLivres.contains(jogada);
+   }
+
+   public static int[] obterJogadaUsuario(String posicoesLivres, Scanner teclado) {
+      int[] jogadaUsuario = new int[2];
+
+      while (true) {
+         try {
+            System.out.println("Digite a linha e a coluna que deseja jogar (separados por espaço):");
+            String entrada = teclado.nextLine().trim();
+            String[] valores = entrada.split(" ");
+
+            if (valores.length != 2) {
+               System.out.println("Entrada inválida! Você deve digitar dois números separados por espaço.");
+               continue;
+            }
+            int linha = Integer.parseInt(valores[0]) - 1;
+            int coluna = Integer.parseInt(valores[1]) - 1;
+
+            if (!jogadaValida(posicoesLivres, linha, coluna)) {
+               System.out.println("Jogada inválida! A posição escolhida já está ocupada ou não existe.");
+               continue;
+            }
+            jogadaUsuario[0] = linha;
+            jogadaUsuario[1] = coluna;
+            break;
+         } catch (NumberFormatException e) {
+            System.out.println("Entrada inválida! Você deve digitar números.");
+         }
+      }
+      return jogadaUsuario;
+   }
+
+   private void processarAVezDoComputador() {
+      int jogada = obterJogadaComputador();
+      if (jogada != -1) {
+         tabuleiro[jogada] = jogadorAtual;
+         exibirTabuleiro();
+      }
+   }
+
+   private void processarVezDoUsuario() {
+      Scanner scanner = new Scanner(System.in);
+      int jogada;
+
+      System.out.println("Vez do jogador " + jogadorAtual + ". Digite uma posição (0 a 8): ");
+      jogada = scanner.nextInt();
+
+      if (jogada >= 0 && jogada < 9 && tabuleiro[jogada] == ' ') {
+         tabuleiro[jogada] = jogadorAtual;
+         exibirTabuleiro();
+      } else {
+         System.out.println("Jogada inválida. Tente novamente.");
+      }
+   }
+
+   public static char[][] retornarTabuleiroAtualizado(char[][] tabuleiro, int[] jogada, char caractereJogador) {
+      tabuleiro[jogada[0]][jogada[1]] = caractereJogador;
+      return tabuleiro;
+   }
+
    static boolean teveEmapte(char[][] tabuleiro) {
-      for (int i = 0; i < tabuleiro.length; i++){
-         for (int j  = 0; j < tabuleiro[i].length; j++){
+      for (int i = 0; i < tabuleiro.length; i++) {
+         for (int j = 0; j < tabuleiro[i].length; j++) {
 
             if (tabuleiro[i][j] == ' ') {
                return false;
@@ -150,4 +208,3 @@ public class TicTacToeGame {
       return true;
    }
 }
-
