@@ -137,6 +137,24 @@ public class TicTacToeGame {
       return posicoesLivres.contains(jogada);
    }
 
+   public static void exibirVitoriaComputador() {
+      System.out.println("O computador venceu!");
+      System.out.println("    +---------------------+");
+      System.out.println("    | +-----------------+ |");
+      System.out.println("    | |                 | |");
+      System.out.println("    | |      0   0      | |");
+      System.out.println("    | |        -        | |");
+      System.out.println("    | |     \\___/      | |");
+      System.out.println("    | |                 | |");
+      System.out.println("    | +-----------------+ |");
+      System.out.println("    +--------+---+--------+");
+      System.out.println("    _______|/     \\|_______");
+      System.out.println("   /                        \\");
+      System.out.println("  /   ********************   \\");
+      System.out.println(" /  ***********************   \\");
+      System.out.println("+------------------------------+");
+   }
+
    public static int[] obterJogadaUsuario(String posicoesLivres, Scanner teclado) {
       int[] jogadaUsuario = new int[2];
 
