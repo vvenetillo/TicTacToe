@@ -195,8 +195,16 @@ public class TicTacToeGame {
       return tabuleiro;
    }
 
-   static boolean jogadaValida(String posicoesLivres, int linha, int coluna) {
-      String posicao = linha + "," + coluna;
-      return posicoesLivres.contains(posicao);
+   static boolean teveEmapte(char[][] tabuleiro) {
+      for (int i = 0; i < tabuleiro.length; i++) {
+         for (int j = 0; j < tabuleiro[i].length; j++) {
+
+            if (tabuleiro[i][j] == ' ') {
+               return false;
+
+            }
+         }
+      }
+      return true;
    }
 }
