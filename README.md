@@ -1,111 +1,121 @@
+<p align="center">
+  <img src="https://i.imgur.com/9kAYSX2.png" alt="TicTacToe Logo">
+</p>
+<p align="center"> 
+  <a href="https://github.com/Jorgeluisreis/TicTacToe"> 
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Jorgeluisreis/TicTacToe"> 
+  </a> 
+  <a href="https://github.com/SeuUsername/TicTacToe/issues"> 
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/Jorgeluisreis/TicTacToe"> 
+  </a> 
+  <a href="https://github.com/Jorgeluisreis/TicTacToe/pulls"> 
+    <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/Jorgeluisreis/TicTacToe"> 
+  </a> 
+  <a href="https://github.com/Jorgeluisreis/TicTacToe"> 
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Jorgeluisreis/TicTacToe"> 
+  </a> 
+  <a href="https://github.com/Jorgeluisreis/TicTacToe"> 
+    <img alt="License" src="https://img.shields.io/github/license/Jorgeluisreis/TicTacToe"> 
+  </a> 
+</p>
+
 # TicTacToe
 
-O JOGO DA VELHA é também um jogo popular e pode ser conhecido por outros nomes diferentes como: jogo do galo ou três em linha.
+## 🎯 Proósito do Projeto
 
-## Sobre
+O projeto **TicTacToe** é uma iniciativa da Hackathon de Dezembro de 2024 da turma 4 do **Programa 1000 Devs** pela [mesttra](https://www.mesttra.com/) em parceria com a [J&J Medtech](https://www.jnjmedtech.com/pt-br) e o [Hospital Einstein](https://www.einstein.br/n/). O Professor [Rogério de Freitas](https://www.linkedin.com/in/rogerio-freitas-ribeiro-690a9712/) organizou o evento para ser um Jogo da Velha com desafios técnicos e de lógica, onde os participantes devem integrar as funcionalidades em equipe. O nome dado ao projeto é **TicTacToe**.
 
-Este é um projeto para a Hackathon de 6 a 8 de Dezembro de 2024 para o Programa 1000Devs, em parceria com a J & J Medtech e o Hospital Albert Einstein.
+## 📚 Conceito
 
-## Dinâmica de pastas
+O **TicTacToe** é um projeto colaborativo desenvolvido em uma Hackathon, com o objetivo de criar um Jogo da Velha que coloca à prova as habilidades técnicas e lógicas dos participantes. Durante o desenvolvimento, a equipe enfrentará desafios de programação e integração, proporcionando uma experiência prática no trabalho em equipe e no desenvolvimento de soluções criativas.
 
-O projeto deve ser consistido nesta distribuição de pastas:
+## 🛠️ Tecnologias Utilizadas
 
+- ![Java](https://img.shields.io/badge/Java-21-blue) - Linguagem de programação utilizada
+- ![Maven](https://img.shields.io/badge/Maven-3.8-blue) - Gerenciador de dependências
+- ![CLI](https://img.shields.io/badge/CLI-Interface-Informática) - Interface de linha de comando utilizada para interação com o jogo
+
+## 🌐 Funcionalidades
+
+- **Modo de Jogo para Dois Jogadores** - Permite que dois jogadores disputem uma partida de Jogo da Velha pela CLI.
+- **Exibição Gráfica no Console** - Interface simples e limpa para visualização do tabuleiro de jogo.
+- **Verificação de Vencedor** - O jogo verifica automaticamente se há um vencedor após cada jogada.
+- **Reinício de Jogo** - Permite que os jogadores reiniciem uma nova partida após o término.
+
+## 📓 Documentação
+
+- Clique [aqui](https://github.com/Jorgeluisreis/TicTacToe/wiki) para ter acessoa documentação completa do **TicTacToe**.
+
+## 📸 Imagens da Aplicação
+
+### Menu Principal
+
+<p align="center">
+  <img src="https://i.imgur.com/6vBVDjV.png" alt="Menu Principal" width="50%">
+</p>
+
+### Sobre o Jogo
+
+<p align="center">
+  <img src="https://i.imgur.com/eWhOLRF.png" alt="Sobre o Jogo" width="50%">
+</p>
+
+### Dentro da Partida (Tabuleiro 3x3)
+
+<p align="center">
+  <img src="https://i.imgur.com/qkXv4Fi.png" alt="Tabuleiro 3x3" width="50%">
+</p>
+
+### Dentro da Partida (Tabuleiro 10x10)
+
+<p align="center">
+  <img src="https://i.imgur.com/iF6O6Wc.png" alt="Tabuleiro 10x10" width="50%">
+</p>
+
+### Tela de Vitória
+
+<p align="center">
+  <img src="https://i.imgur.com/K8ACSsO.png" alt="Tela de Vitória" width="50%">
+</p>
+
+## 📥 Requisitos Mínimos
+
+- **JRE 1.8** - Necessário para rodar a aplicação.
+
+## 🛠️ Instalação
+
+### Windows
+
+- OBS: Em caso de Compilação, ou seja, caso quiser rodar o projeto no seu Ambiente de Desenvolvimento, será necessário a instalação do binário do [Maven](https://maven.apache.org/download.cgi) e localmente a Biblioteca **ConsoleClear**.
+
+Para a instalação da biblioteca, insira o comando abaixo já tendo o Maven instalado na sua máquina em um terminal (CMD ou GitBash), substituindo a palavra **DIRETÓRIO** pelo diretório onde você fez o clone do projeto:
+
+```bash
+mvn install:install-file -Dfile="DIRETÓRIO\lib\ConsoleClear-1.0.0.jar" -DgroupId=net.jorgedev -DartifactId=ConsoleClear -Dversion=1.0.0 -Dpackaging=jar
 ```
 
-TicTacToe/
-├── lib/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── hackathon/
-│   │   │           └── tictactoe/
-│   │   │               ├── Main.java                # Classe principal
-│   │   │               ├── game/                   # Pacote para lógica do jogo
-│   │   │               │   ├── TicTacToeGame.java  # Classe central do jogo
-│   │   │               │   ├── Player.java         # Classe para jogadores
-│   │   │               │   ├── Board.java          # Classe para o tabuleiro
-│   │   │               │   └── MoveValidator.java  # Classe para validar jogadas
-│   │   │               ├── ui/                     # Pacote para interface do usuário
-│   │   │               │   ├── ConsoleUI.java      # Classe para interações no console
-│   │   │               │   └── Display.java        # Classe para exibir mensagens e tabuleiro
-│   │   │               ├── util/                   # Pacote para utilitários
-│   │   │               │   └── Logger.java         # Classe para logging
-│   │   │               └── config/                 # Pacote para configuração
-│   │   │                   └── GameConfig.java     # Classe para configuração de jogo
-│   │   └── resources/                              # Recursos do projeto
-│   │       └── messages.properties                 # Arquivo de mensagens
-│   └── test/                                       # Testes unitários
-│       └── java/
-│           └── com/
-│               └── hackathon/
-│                   └── tictactoe/
-│                       ├── TicTacToeGameTest.java  # Testes para a lógica do jogo
-│                       ├── BoardTest.java          # Testes para o tabuleiro
-│                       └── ConsoleUITest.java      # Testes para a interface de usuário
-├── target/                                         # Gerado após build
-├── .gitignore                                      # Arquivos e diretórios a ignorar pelo Git
-├── pom.xml                                         # Arquivo de configuração Maven
-├── README.md                                       # Documentação inicial do projeto
-└── LICENSE                                         # Licença do projeto
-```
+## Tutorial de Instalação
 
-OBS: Pode haver mudanças com o decorrer do desenvolvimento
+1.  Faça o download da aplicação clicando [aqui](https://github.com/Jorgeluisreis/TicTacToe/releases)
+2.  Descompacte o arquivo baixado usando o WinRAR ou 7-Zip.
+3.  Mova a pasta descompactada para um local de sua preferência.
+4.  Abra o terminal na pasta onde o arquivo foi descompactado e execute:
+    ```bash
+    java -jar TicTacToe.jar
+    ```
+    ou execute o **.exe** que é o **.jar** convertido para executável.
 
-## Como tratar o fluxo de desenvolvimento ?
+### Linux
 
-OBS: é estritamente necessário fazer a instalação do [Maven](https://dicasdeprogramacao.com.br/como-instalar-o-maven-no-windows/) para esta aplicação funcionar, além de instalar manualmente a biblioteca ConsoleClear.
+1.  Faça o download da aplicação clicando [aqui](https://github.com/SeuUsername/TicTacToe/releases)
+2.  Descompacte o arquivo baixado usando o `unzip` ou qualquer outra ferramenta de sua preferência.
+3.  Mova a pasta descompactada para um local de sua escolha no sistema.
+4.  Torne o arquivo executável e execute o jogo:
+    ```bash
+    chmod +x TicTacToe.jar
+    java -jar TicTacToe.jar
+    ```
 
-```
-mvn install:install-file -Dfile="DIRETÓRIO\ConsoleClear-1.0.0.jar" -DgroupId='net.jorgedev' -
+## 📄 Licença
 
-DartifactId=ConsoleClear -
-
-Dversion='1.0.0' -Dpackaging=jar
-```
-
-O código acima pode ser rodado no Terminal, Git Bash ou Powershell.
-
-Onde há escrito **DIRETÓRIO**, deve ser colocado o diretório do projeto direto na pasta lib.
-
-1. Mova o card que seja desenvolver de _Read_ para _In Progress_ e atribua o seu nome no campo _Assignees_ clicando no nome do card.
-   ![](https://i.imgur.com/jj2oK9o.png)
-
-![enter image description here](https://i.imgur.com/pI8DNCh.png)
-
-2. No card, clique em **Convert to issue** e selecione o repositório do projeto, isso gerará uma mudança que será visível e gerenciada pelo líder do projeto, essencial para garantir o fluxo saudável do desenvolvimento.
-
-   ![enter image description here](https://i.imgur.com/5qrWZH6.png)
-
-   ![enter image description here](https://i.imgur.com/cBWyr16.png)
-
-   ![enter image description here](https://i.imgur.com/jt7NcxC.png)
-
-3. Crie uma branch nome com o nome do card, por exemplo:
-   Na aba de branchs, clique em **View all branchs**
-
-   ![enter image description here](https://i.imgur.com/Bbxiicx.png)
-
-   Clicando em **New branch**, você pode estar criando uma nova branch para o projeto.
-
-Exemplo: se o card se chama "Adição da biblioteca de console", a branch se chamará "Adicao_da_biblioteca_de_console", e aponta-la para a branch **development** e clique em **Create new bran ch**, ou seja, a nova branch será criada espelhada na branch de desenvolvimento. Isto é necessário para que você trabalhe as suas modificações dentro da aplicação sem intervir nas outras modificações que estão sendo criadas.
-![enter image description here](https://i.imgur.com/OLWXLLn.png)
-
-4. No seu projeto, dê o **git pull** para atualizar a sua branch local e assim trazer a criação da sua branch remota, mude para ela e comece o desenvolvimento.
-
-   ![enter image description here](https://i.imgur.com/Glztjx6.png)
-
-   ![enter image description here](https://i.imgur.com/DTLIjiN.png)
-
-5. No término do desenvolvimento, faça commits usando Convensão de Commits
-   ![enter image description here](https://i.imgur.com/KE2DM1G.png)
-
-   ![enter image description here](https://i.imgur.com/VsalRh3.png)
-
-6. Quando o código estiver validado, testado localmente, crie um **Pull Request** a partir da sua branch de trabalho:
-   ![enter image description here](https://i.imgur.com/utON8Yo.png)
-
-   Faça as devidas configurações e ponderações a respeito da solicitação, como feito abaixo:
-   ![enter image description here](https://i.imgur.com/BvIsIC6.png)
-
-   e clique em **Create pull request** que o coordenador irá avaliar e testar junto com você a sua implementação.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](https://github.com/SeuUsername/TicTacToe/blob/main/LICENSE) para mais detalhes.
