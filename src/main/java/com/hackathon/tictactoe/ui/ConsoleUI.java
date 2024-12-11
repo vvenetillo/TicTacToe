@@ -56,7 +56,7 @@ public class ConsoleUI {
 
                         ### Membros do Grupo 6 ###
                         - Jorge Luis: Líder Técnico
-                        - Victor Venetillo: Líder People
+                        - José Victor: Líder People
                         - Arthur Ramalho
                         - Gilvan Ribeiro
                         - Lorena Gouveia
