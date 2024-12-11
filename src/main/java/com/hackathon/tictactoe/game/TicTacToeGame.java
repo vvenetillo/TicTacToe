@@ -7,6 +7,7 @@ import net.jorgedev.ConsoleClear;
 
 import com.hackathon.tictactoe.config.GameConfig;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TicTacToeGame {
@@ -24,8 +25,38 @@ public class TicTacToeGame {
       Scanner teclado = new Scanner(System.in);
       ConsoleClear.run();
       System.out.println(Display.logo());
-      System.out.print("Escolha o tamanho do tabuleiro (ex.: 3 para 3x3, 4 para 4x4): ");
-      int tamanhoTabuleiro = teclado.nextInt();
+
+      int tamanhoTabuleiro = 0;
+      boolean entradaValida = false;
+
+      while (!entradaValida) {
+         System.out.print("Escolha o tamanho do tabuleiro (ex.: 3 para 3x3, 4 para 4x4): ");
+         try {
+            tamanhoTabuleiro = teclado.nextInt();
+            if (tamanhoTabuleiro < 3) {
+               ConsoleClear.run();
+               System.out.println(Display.logo());
+               System.out.println("Erro: O tamanho mínimo do tabuleiro é 3.");
+               System.out.println("Aperte qualquer tecla para tentar novamente.");
+               teclado.nextLine();
+               teclado.nextLine();
+               ConsoleClear.run();
+               System.out.println(Display.logo());
+               continue;
+            }
+            entradaValida = true;
+         } catch (InputMismatchException e) {
+            ConsoleClear.run();
+            System.out.println(Display.logo());
+            System.out.println("Erro: Entrada inválida! Por favor, insira um número inteiro.");
+            teclado.nextLine();
+            teclado.nextLine();
+            ConsoleClear.run();
+            System.out.println(Display.logo());
+            continue;
+         }
+      }
+
       board = new Board(tamanhoTabuleiro);
       moveValidator = new MoveValidator(board);
 
@@ -50,11 +81,15 @@ public class TicTacToeGame {
 
             if (teveGanhador(board.getTabuleiro(), caractereUsuario)) {
                Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro());
+               System.out.printf("Seu caractere: %s | Caractere do Computador: %s\n", caractereUsuario,
+                     caractereComputador);
                exibirArteASCIIJogador();
                esperarEnter(teclado);
                jogoContinua = false;
             } else if (teveEmpate(board.getTabuleiro())) {
                Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro());
+               System.out.printf("Seu caractere: %s | Caractere do Computador: %s\n", caractereUsuario,
+                     caractereComputador);
                Display.exibirEmpate();
                esperarEnter(teclado);
                jogoContinua = false;
@@ -66,7 +101,10 @@ public class TicTacToeGame {
 
             if (teveGanhador(board.getTabuleiro(), caractereComputador)) {
                Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro());
+               System.out.printf("Seu caractere: %s | Caractere do Computador: %s\n", caractereUsuario,
+                     caractereComputador);
                exibirArteASCIIComputador();
+               ;
                esperarEnter(teclado);
                jogoContinua = false;
             } else if (teveEmpate(board.getTabuleiro())) {
@@ -92,18 +130,35 @@ public class TicTacToeGame {
    }
 
    private char obterCaractereUsuario(Scanner teclado) {
-      char caractere;
+      char caractere = ' ';
       String caracteresAceitos = "XO0UC";
-      boolean valido;
+      boolean valido = false;
 
-      do {
-         System.out.print("Escolha seu caractere (X, O, 0, U, C): ");
-         caractere = teclado.next().toUpperCase().charAt(0);
-         valido = caracteresAceitos.indexOf(caractere) != -1;
-         if (!valido) {
-            System.out.println("Caractere inválido. Escolha novamente.");
+      while (!valido) {
+         if (teclado.hasNextLine()) {
+            teclado.nextLine();
          }
-      } while (!valido);
+
+         ConsoleClear.run();
+         System.out.println(Display.logo());
+         System.out.print("Escolha seu caractere (X, O, 0, U, C): ");
+
+         String entrada = teclado.nextLine().trim();
+
+         if (entrada.length() == 1 && caracteresAceitos.indexOf(entrada.toUpperCase().charAt(0)) != -1) {
+            caractere = entrada.toUpperCase().charAt(0);
+            valido = true;
+         } else {
+            System.out.println("Caractere inválido. Escolha um caractere válido: X, O, 0, U, C.");
+            continue;
+         }
+         if (!valido) {
+            teclado.nextLine();
+         }
+
+         ConsoleClear.run();
+         System.out.println(Display.logo());
+      }
 
       return caractere;
    }
@@ -120,6 +175,7 @@ public class TicTacToeGame {
 
    private char[][] processarVezUsuario(Scanner teclado, char[][] tabuleiro, char caractereUsuario) {
       System.out.println("Jogador, é sua vez!");
+      System.out.printf("Seu caractere: %s | Caractere do Computador: %s\n", caractereUsuario, caractereComputador);
       int[] jogada = moveValidator.obterJogadaUsuario(teclado, tabuleiro, caractereUsuario);
       return board.retornarTabuleiroAtualizado(tabuleiro, jogada, caractereUsuario);
    }
