@@ -1,143 +1,139 @@
 package com.hackathon.tictactoe.game;
 
-import java.util.Random;
-import java.util.Scanner;
 import com.hackathon.tictactoe.ui.ConsoleUI;
-import net.jorgedev.ConsoleClear;
+import com.hackathon.tictactoe.ui.Display;
+import com.hackathon.tictactoe.config.GameConfig;
+import java.util.Scanner;
 
 public class TicTacToeGame {
 
-   public static int[] converterJogadaStringParaVetorInt(String jogada) {
-      int[] vetorJogada = new int[2];
-      vetorJogada[0] = Character.getNumericValue(jogada.charAt(0));
-      vetorJogada[1] = Character.getNumericValue(jogada.charAt(1));
-      return vetorJogada;
+   private Board board;
+   private MoveValidator moveValidator;
+   private char caractereUsuario;
+   private char caractereComputador;
+
+   public TicTacToeGame() {
+      configurarJogo();
    }
 
-   public static void exibirEmpate() {
-      System.out.println("Ocorreu um empate!");
-      System.out.println(" _______       _______ ");
-      System.out.println("|       |     |       |");
-      System.out.println("|   0   |  x  |   0   |");
-      System.out.println("|_______|     |_______|");
+   public void configurarJogo() {
+      Scanner teclado = new Scanner(System.in);
+
+      // Solicita o tamanho do tabuleiro
+      System.out.print("Escolha o tamanho do tabuleiro (ex.: 3 para 3x3, 4 para 4x4): ");
+      int tamanhoTabuleiro = teclado.nextInt();
+      board = new Board(tamanhoTabuleiro);
+      moveValidator = new MoveValidator(board);
+
+      // Solicita o caractere que será usado pelo jogador
+      caractereUsuario = obterCaractereUsuario(teclado);
+
+      // Define automaticamente o caractere do computador (primeiro disponível)
+      caractereComputador = obterCaractereComputador(teclado, caractereUsuario);
+
+      board.inicializarTabuleiro();
    }
 
-   public static char[][] inicializarTabuleiro(char[][] tabuleiro) {
-      for (int i = 0; i < tabuleiro.length; i++) {
-         for (int j = 0; j < tabuleiro[i].length; j++) {
-            tabuleiro[i][j] = ' ';
-         }
-      }
-      return tabuleiro;
-   }
+   public void executarJogo() {
+      Scanner teclado = new Scanner(System.in);
 
-   public static void exibirTabuleiro() {
-      Scanner teste = new Scanner(System.in);
+      boolean vezUsuario = GameConfig.sortearValorBooleano(); // Define quem começa
+      boolean jogoContinua;
 
-      ConsoleClear.run();
-      char[][] tabuleiro = new char[3][3];
-      inicializarTabuleiro(tabuleiro);
+      do {
+         Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro());
 
-      System.out.println(ConsoleUI.Logo());
-      for (char[] linha : tabuleiro) {
-         for (char celula : linha) {
-            System.out.print("[" + celula + "]");
-         }
-         System.out.println();
-      }
-      teste.nextLine();
-      teste.close();
-   }
+         if (vezUsuario) {
+            board.setTabuleiro(processarVezUsuario(teclado, board.getTabuleiro(), caractereUsuario));
 
-   public static String retornarPosicoesLivres(char[][] tabuleiro) {
-      StringBuilder posicoesLivres = new StringBuilder();
+            if (teveGanhador(board.getTabuleiro(), caractereUsuario)) {
+               Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro());
+               exibirArteASCIIJogador();
+               esperarEnter(teclado);
+               jogoContinua = false;
+            } else {
+               vezUsuario = false;
+               jogoContinua = !teveEmpate(board.getTabuleiro());
+            }
+         } else {
+            board.setTabuleiro(processarVezComputador(board.getTabuleiro(), caractereComputador));
 
-      for (int i = 0; i < tabuleiro.length; i++) {
-         for (int j = 0; j < tabuleiro[i].length; j++) {
-            if (tabuleiro[i][j] == ' ') {
-               posicoesLivres.append(i).append(j).append(";");
+            if (teveGanhador(board.getTabuleiro(), caractereComputador)) {
+               Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro());
+               exibirArteASCIIComputador();
+               esperarEnter(teclado);
+               jogoContinua = false;
+            } else {
+               vezUsuario = true;
+               jogoContinua = !teveEmpate(board.getTabuleiro());
             }
          }
+
+      } while (jogoContinua);
+
+      if (teveEmpate(board.getTabuleiro())) {
+         Display.exibirEmpate();
+         esperarEnter(teclado);
       }
-      if (posicoesLivres.length() > 0) {
-         posicoesLivres.setLength(posicoesLivres.length() - 1);
-      }
-      return posicoesLivres.toString();
+
+      ConsoleUI.exibirMenu();
    }
 
-   public static boolean teveGanhador(char[][] tabuleiro, char caractereJogador) {
-      return teveGanhadorLinha(tabuleiro, caractereJogador) ||
-            teveGanhadorColuna(tabuleiro, caractereJogador) ||
-            teveGanhadorDiagonalPrincipal(tabuleiro, caractereJogador) ||
-            teveGanhadorDiagonalSecundaria(tabuleiro, caractereJogador);
+   private boolean teveEmpate(char[][] tabuleiro) {
+      return moveValidator.teveEmpate(tabuleiro);
    }
 
-   public static boolean teveGanhadorLinha(char[][] tabuleiro, char caractereJogador) {
-      for (int i = 0; i < tabuleiro.length; i++) {
-         boolean venceu = true;
-         for (int j = 0; j < tabuleiro[i].length; j++) {
-            if (tabuleiro[i][j] != caractereJogador) {
-               venceu = false;
-               break;
-            }
+   private boolean teveGanhador(char[][] tabuleiro, char caractereJogador) {
+      return moveValidator.teveGanhador(tabuleiro, caractereJogador);
+   }
+
+   private char obterCaractereUsuario(Scanner teclado) {
+      char caractere;
+      String caracteresAceitos = "XO0UC";
+      boolean valido;
+
+      do {
+         System.out.print("Escolha seu caractere (X, O, 0, U, C): ");
+         caractere = teclado.next().toUpperCase().charAt(0);
+         valido = caracteresAceitos.indexOf(caractere) != -1;
+         if (!valido) {
+            System.out.println("Caractere inválido. Escolha novamente.");
          }
-         if (venceu)
-            return true;
-      }
-      return false;
+      } while (!valido);
+
+      return caractere;
    }
 
-   public static boolean teveGanhadorColuna(char[][] tabuleiro, char caractereJogador) {
-      for (int j = 0; j < tabuleiro[0].length; j++) {
-         boolean venceu = true;
-         for (int i = 0; i < tabuleiro.length; i++) {
-            if (tabuleiro[i][j] != caractereJogador) {
-               venceu = false;
-               break;
-            }
-         }
-         if (venceu)
-            return true;
-      }
-      return false;
-   }
-
-   public static boolean teveGanhadorDiagonalPrincipal(char[][] tabuleiro, char caractereJogador) {
-      for (int i = 0; i < tabuleiro.length; i++) {
-         if (tabuleiro[i][i] != caractereJogador) {
-            return false;
+   private char obterCaractereComputador(Scanner teclado, char caractereUsuario) {
+      String caracteresAceitos = "XO0UC";
+      for (char c : caracteresAceitos.toCharArray()) {
+         if (c != caractereUsuario) {
+            return c;
          }
       }
-      return true;
+      return ' '; // Não deve acontecer
    }
 
-   public static boolean teveGanhadorDiagonalSecundaria(char[][] tabuleiro, char caractereJogador) {
-      int n = tabuleiro.length;
-      for (int i = 0; i < n; i++) {
-         if (tabuleiro[i][n - 1 - i] != caractereJogador) {
-            return false;
-         }
-      }
-      return true;
+   private char[][] processarVezUsuario(Scanner teclado, char[][] tabuleiro, char caractereUsuario) {
+      System.out.println("Jogador, é sua vez!");
+      int[] jogada = moveValidator.obterJogadaUsuario(teclado, tabuleiro, caractereUsuario);
+      return board.retornarTabuleiroAtualizado(tabuleiro, jogada, caractereUsuario);
    }
 
-   public static int[] obterJogadaComputador(String posicoesLivres, Scanner teclado) {
-      String[] jogadasLivres = posicoesLivres.split(";");
-
-      Random random = new Random();
-      int indiceSorteado = random.nextInt(jogadasLivres.length);
-
-      String jogadaSorteada = jogadasLivres[indiceSorteado];
-
-      return converterJogadaStringParaVetorInt(jogadaSorteada);
+   private char[][] processarVezComputador(char[][] tabuleiro, char caractereComputador) {
+      System.out.println("Computador está jogando...");
+      int[] jogada = moveValidator.obterJogadaComputador(tabuleiro);
+      return board.retornarTabuleiroAtualizado(tabuleiro, jogada, caractereComputador);
    }
 
-   public static boolean jogadaValida(String posicoesLivres, int linha, int coluna) {
-      String jogada = linha + "" + coluna;
-      return posicoesLivres.contains(jogada);
+   private void exibirArteASCIIJogador() {
+      System.out.println("Parabéns! Você venceu!");
+      System.out.println("     \\O/");
+      System.out.println("      |");
+      System.out.println("     / \\");
    }
 
-   public static void exibirVitoriaComputador() {
+   private void exibirArteASCIIComputador() {
       System.out.println("O computador venceu!");
       System.out.println("    +---------------------+");
       System.out.println("    | +-----------------+ |");
@@ -155,74 +151,9 @@ public class TicTacToeGame {
       System.out.println("+------------------------------+");
    }
 
-   public static int[] obterJogadaUsuario(String posicoesLivres, Scanner teclado) {
-      int[] jogadaUsuario = new int[2];
-
-      while (true) {
-         try {
-            System.out.println("Digite a linha e a coluna que deseja jogar (separados por espaço):");
-            String entrada = teclado.nextLine().trim();
-            String[] valores = entrada.split(" ");
-
-            if (valores.length != 2) {
-               System.out.println("Entrada inválida! Você deve digitar dois números separados por espaço.");
-               continue;
-            }
-            int linha = Integer.parseInt(valores[0]) - 1;
-            int coluna = Integer.parseInt(valores[1]) - 1;
-
-            if (!jogadaValida(posicoesLivres, linha, coluna)) {
-               System.out.println("Jogada inválida! A posição escolhida já está ocupada ou não existe.");
-               continue;
-            }
-            jogadaUsuario[0] = linha;
-            jogadaUsuario[1] = coluna;
-            break;
-         } catch (NumberFormatException e) {
-            System.out.println("Entrada inválida! Você deve digitar números.");
-         }
-      }
-      return jogadaUsuario;
-   }
-
-   private void processarAVezDoComputador() {
-      int jogada = obterJogadaComputador();
-      if (jogada != -1) {
-         tabuleiro[jogada] = jogadorAtual;
-         exibirTabuleiro();
-      }
-   }
-
-   private void processarVezDoUsuario() {
-      Scanner scanner = new Scanner(System.in);
-      int jogada;
-
-      System.out.println("Vez do jogador " + jogadorAtual + ". Digite uma posição (0 a 8): ");
-      jogada = scanner.nextInt();
-
-      if (jogada >= 0 && jogada < 9 && tabuleiro[jogada] == ' ') {
-         tabuleiro[jogada] = jogadorAtual;
-         exibirTabuleiro();
-      } else {
-         System.out.println("Jogada inválida. Tente novamente.");
-      }
-   }
-
-   public static char[][] retornarTabuleiroAtualizado(char[][] tabuleiro, int[] jogada, char caractereJogador) {
-      tabuleiro[jogada[0]][jogada[1]] = caractereJogador;
-      return tabuleiro;
-   }
-
-   static boolean teveEmapte(char[][] tabuleiro) {
-      for (int i = 0; i < tabuleiro.length; i++) {
-         for (int j = 0; j < tabuleiro[i].length; j++) {
-
-            if (tabuleiro[i][j] == ' ') {
-               return false;
-
-            }
-         }
-      }
-      return true;
+   private void esperarEnter(Scanner teclado) {
+      System.out.println("Pressione Enter para continuar...");
+      teclado.nextLine(); // Consumir a linha restante
+      teclado.nextLine(); // Esperar a entrada do usuário
    }
 }
