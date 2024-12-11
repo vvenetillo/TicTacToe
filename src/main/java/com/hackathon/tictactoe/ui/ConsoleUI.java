@@ -8,13 +8,13 @@ import java.util.Scanner;
 
 public class ConsoleUI {
 
-    public static void exibirMenu() {
+    private static final Scanner SCANNER = new Scanner(System.in);
 
-        Scanner scanner = new Scanner(System.in);
+    public static void exibirMenu() {
         int escolha = -1;
-        ConsoleClear.run();
 
         while (escolha != 3) {
+            ConsoleClear.run();
             System.out.println(logo());
             System.out.println("=== Menu Interativo ===");
             System.out.println("1- Jogar Jogo da Velha");
@@ -23,7 +23,7 @@ public class ConsoleUI {
             System.out.print("Escolha uma opção: ");
 
             try {
-                escolha = Integer.parseInt(scanner.nextLine());
+                escolha = Integer.parseInt(SCANNER.nextLine());
 
                 switch (escolha) {
                     case 1 -> iniciarJogo();
@@ -35,8 +35,6 @@ public class ConsoleUI {
                 System.out.println("Entrada inválida! Selecione um número correspondente a uma opção.");
             }
         }
-
-        scanner.close();
     }
 
     private static void iniciarJogo() {
@@ -45,11 +43,32 @@ public class ConsoleUI {
     }
 
     private static void sobreOJogo() {
+        ConsoleClear.run();
         System.out.println(logo());
         System.out.println(
-                "O JOGO DA VELHA é um jogo de estratégia clássico, também conhecido como três em linha, comumente jogado entre dois participantes.");
-        System.out.println("\nPressione Enter para voltar ao menu...");
-        new Scanner(System.in).nextLine();
+                """
+                        O Jogo da Velha foi um projeto idealizado pelo professor Rogério da Turma 4 do Programa 1000 Devs,
+                        realizado pela Mesttra em parceria com a Johnson & Johnson MedTech e o Hospital Israelita Albert Einstein.
+
+                        Nosso jogo recebeu o nome de TicTacToe e foi desenvolvido utilizando:
+                        - Linguagem de programação: Java
+                        - Controle de versionamento: Git e Gitflow
+
+                        ### Membros do Grupo 6 ###
+                        - Jorge Luis: Líder técnico
+                        - Victor Venetillo: Líder People
+                        - Arthur Ramalho
+                        - Gilvan Ribeiro
+                        - Lorena Gouveia
+                        - Hyngred Menezes
+                        - Luan Nascimento
+
+                        Versão: 1.0
+                        Build: 11/12/2024
+
+                        Pressione Enter para voltar ao menu...
+                        """);
+        SCANNER.nextLine();
     }
 
     private static String logo() {
