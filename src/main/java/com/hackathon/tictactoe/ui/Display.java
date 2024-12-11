@@ -5,7 +5,8 @@ import net.jorgedev.ConsoleClear;
 public class Display {
 
     public static void exibirTabuleiro(char[][] tabuleiro, int tamanhoTabuleiro) {
-        ConsoleClear.run(); // Limpa o console
+        ConsoleClear.run();
+        System.out.println(Display.logo());
         System.out.println("\nTabuleiro Atual:");
 
         for (int i = 0; i < tamanhoTabuleiro; i++) {
@@ -17,7 +18,6 @@ public class Display {
             }
             System.out.println();
             if (i < tamanhoTabuleiro - 1) {
-                // Adiciona separador horizontal
                 for (int k = 0; k < tamanhoTabuleiro; k++) {
                     System.out.print("-----");
                     if (k < tamanhoTabuleiro - 1) {
@@ -30,17 +30,40 @@ public class Display {
     }
 
     public static void exibirEmpate() {
-        System.out.println("\nO jogo terminou em empate!");
+        System.out.println("\nOcorreu um empate!");
+        System.out.println(" _______       _______ ");
+        System.out.println("|       |     |       |");
+        System.out.println("|   0   |  x  |   0   |");
+        System.out.println("|_______|     |_______|");
+
     }
 
-    public static void splashScreen() {
-        System.out.println("""
-                ██   ██  █████   ██████ ██   ██  █████  ████████ ██   ██  ██████  ███    ██ 
-                ██   ██ ██   ██ ██      ██  ██  ██   ██    ██    ██   ██ ██    ██ ████   ██ 
-                ███████ ███████ ██      █████   ███████    ██    ███████ ██    ██ ██ ██  ██ 
-                ██   ██ ██   ██ ██      ██  ██  ██   ██    ██    ██   ██ ██    ██ ██  ██ ██ 
-                ██   ██ ██   ██  ██████ ██   ██ ██   ██    ██    ██   ██  ██████  ██   ████ 
-                                                                                            
-                """);
+    public static String logo() {
+        return """
+                 /$$$$$$$$ /$$        /$$$$$$$$               /$$$$$$$$
+                |__  $$__/|__/       |__  $$__/              |__  $$__/
+                   | $$    /$$  /$$$$$$$| $$  /$$$$$$   /$$$$$$$| $$  /$$$$$$   /$$$$$$
+                   | $$   | $$ /$$_____/| $$ |____  $$ /$$_____/| $$ /$$__  $$ /$$__  $$
+                   | $$   | $$| $$      | $$  /$$$$$$$| $$      | $$| $$  \\ $$| $$$$$$$$
+                   | $$   | $$| $$      | $$ /$$__  $$| $$      | $$| $$  | $$| $$_____/
+                   | $$   | $$|  $$$$$$$| $$|  $$$$$$$|  $$$$$$$| $$|  $$$$$$/|  $$$$$$$
+                   |__/   |__/ \\_______/|__/ \\_______/ \\_______/|__/ \\______/  \\_______/
+                """;
     }
+
+    public static String splashScreen() {
+        return """
+                 /$$$$$$$$ /$$        /$$$$$$$$               /$$$$$$$$
+                |__  $$__/|__/       |__  $$__/              |__  $$__/
+                   | $$    /$$  /$$$$$$$| $$  /$$$$$$   /$$$$$$$| $$  /$$$$$$   /$$$$$$
+                   | $$   | $$ /$$_____/| $$ |____  $$ /$$_____/| $$ /$$__  $$ /$$__  $$
+                   | $$   | $$| $$      | $$  /$$$$$$$| $$      | $$| $$  \\ $$| $$$$$$$$
+                   | $$   | $$| $$      | $$ /$$__  $$| $$      | $$| $$  | $$| $$_____/
+                   | $$   | $$|  $$$$$$$| $$|  $$$$$$$|  $$$$$$$| $$|  $$$$$$/|  $$$$$$$
+                   |__/   |__/ \\_______/|__/ \\_______/ \\_______/|__/ \\______/  \\_______/
+
+                                         Grupo 6 apresenta...
+                """;
+    }
+
 }

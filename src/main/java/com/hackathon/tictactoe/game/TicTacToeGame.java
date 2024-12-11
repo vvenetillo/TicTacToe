@@ -2,7 +2,11 @@ package com.hackathon.tictactoe.game;
 
 import com.hackathon.tictactoe.ui.ConsoleUI;
 import com.hackathon.tictactoe.ui.Display;
+
+import net.jorgedev.ConsoleClear;
+
 import com.hackathon.tictactoe.config.GameConfig;
+
 import java.util.Scanner;
 
 public class TicTacToeGame {
@@ -18,17 +22,15 @@ public class TicTacToeGame {
 
    public void configurarJogo() {
       Scanner teclado = new Scanner(System.in);
-
-      // Solicita o tamanho do tabuleiro
+      ConsoleClear.run();
+      System.out.println(Display.logo());
       System.out.print("Escolha o tamanho do tabuleiro (ex.: 3 para 3x3, 4 para 4x4): ");
       int tamanhoTabuleiro = teclado.nextInt();
       board = new Board(tamanhoTabuleiro);
       moveValidator = new MoveValidator(board);
 
-      // Solicita o caractere que será usado pelo jogador
       caractereUsuario = obterCaractereUsuario(teclado);
 
-      // Define automaticamente o caractere do computador (primeiro disponível)
       caractereComputador = obterCaractereComputador(teclado, caractereUsuario);
 
       board.inicializarTabuleiro();
@@ -37,10 +39,10 @@ public class TicTacToeGame {
    public void executarJogo() {
       Scanner teclado = new Scanner(System.in);
 
-      boolean vezUsuario = GameConfig.sortearValorBooleano(); // Define quem começa
-      boolean jogoContinua;
+      boolean vezUsuario = GameConfig.sortearValorBooleano();
+      boolean jogoContinua = true;
 
-      do {
+      while (jogoContinua) {
          Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro());
 
          if (vezUsuario) {
@@ -51,9 +53,13 @@ public class TicTacToeGame {
                exibirArteASCIIJogador();
                esperarEnter(teclado);
                jogoContinua = false;
+            } else if (teveEmpate(board.getTabuleiro())) {
+               Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro());
+               Display.exibirEmpate();
+               esperarEnter(teclado);
+               jogoContinua = false;
             } else {
                vezUsuario = false;
-               jogoContinua = !teveEmpate(board.getTabuleiro());
             }
          } else {
             board.setTabuleiro(processarVezComputador(board.getTabuleiro(), caractereComputador));
@@ -63,17 +69,15 @@ public class TicTacToeGame {
                exibirArteASCIIComputador();
                esperarEnter(teclado);
                jogoContinua = false;
+            } else if (teveEmpate(board.getTabuleiro())) {
+               Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro());
+               Display.exibirEmpate();
+               esperarEnter(teclado);
+               jogoContinua = false;
             } else {
                vezUsuario = true;
-               jogoContinua = !teveEmpate(board.getTabuleiro());
             }
          }
-
-      } while (jogoContinua);
-
-      if (teveEmpate(board.getTabuleiro())) {
-         Display.exibirEmpate();
-         esperarEnter(teclado);
       }
 
       ConsoleUI.exibirMenu();
@@ -111,7 +115,7 @@ public class TicTacToeGame {
             return c;
          }
       }
-      return ' '; // Não deve acontecer
+      return ' ';
    }
 
    private char[][] processarVezUsuario(Scanner teclado, char[][] tabuleiro, char caractereUsuario) {
@@ -140,7 +144,7 @@ public class TicTacToeGame {
       System.out.println("    | |                 | |");
       System.out.println("    | |      0   0      | |");
       System.out.println("    | |        -        | |");
-      System.out.println("    | |     \\___/      | |");
+      System.out.println("    | |      \\___/      | |");
       System.out.println("    | |                 | |");
       System.out.println("    | +-----------------+ |");
       System.out.println("    +--------+---+--------+");
@@ -153,7 +157,7 @@ public class TicTacToeGame {
 
    private void esperarEnter(Scanner teclado) {
       System.out.println("Pressione Enter para continuar...");
-      teclado.nextLine(); // Consumir a linha restante
-      teclado.nextLine(); // Esperar a entrada do usuário
+      teclado.nextLine();
+      teclado.nextLine();
    }
 }

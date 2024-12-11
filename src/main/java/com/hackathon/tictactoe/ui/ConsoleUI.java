@@ -1,19 +1,20 @@
 package com.hackathon.tictactoe.ui;
 
 import com.hackathon.tictactoe.game.TicTacToeGame;
+
 import net.jorgedev.ConsoleClear;
 
 import java.util.Scanner;
 
 public class ConsoleUI {
 
-    // Exibe o menu principal
     public static void exibirMenu() {
+
         Scanner scanner = new Scanner(System.in);
         int escolha = -1;
+        ConsoleClear.run();
 
         while (escolha != 3) {
-            ConsoleClear.run();
             System.out.println(logo());
             System.out.println("=== Menu Interativo ===");
             System.out.println("1- Jogar Jogo da Velha");
@@ -21,10 +22,8 @@ public class ConsoleUI {
             System.out.println("3- Sair");
             System.out.print("Escolha uma opção: ");
 
-            String input = scanner.nextLine();
-
             try {
-                escolha = Integer.parseInt(input);
+                escolha = Integer.parseInt(scanner.nextLine());
 
                 switch (escolha) {
                     case 1 -> iniciarJogo();
@@ -40,36 +39,29 @@ public class ConsoleUI {
         scanner.close();
     }
 
-    // Inicializa o jogo
-    static void iniciarJogo() {
+    private static void iniciarJogo() {
         TicTacToeGame jogo = new TicTacToeGame();
         jogo.executarJogo();
     }
 
-    // Exibe informações sobre o jogo
-    static void sobreOJogo() {
-        ConsoleClear.run();
+    private static void sobreOJogo() {
         System.out.println(logo());
         System.out.println(
                 "O JOGO DA VELHA é um jogo de estratégia clássico, também conhecido como três em linha, comumente jogado entre dois participantes.");
-        voltar(new Scanner(System.in));
-    }
-
-    // Aguarda o usuário pressionar "Enter" para voltar ao menu
-    private static void voltar(Scanner scanner) {
         System.out.println("\nPressione Enter para voltar ao menu...");
-        scanner.nextLine();
+        new Scanner(System.in).nextLine();
     }
 
-    // ASCII Art para o menu principal
-    public static String logo() {
+    private static String logo() {
         return """
-                ████████ ██  ██████ ████████  █████   ██████ ████████  ██████  ███████ 
-                   ██    ██ ██         ██    ██   ██ ██         ██    ██    ██ ██      
-                   ██    ██ ██         ██    ███████ ██         ██    ██    ██ █████ 
-                   ██    ██ ██         ██    ██   ██ ██         ██    ██    ██ ██    
-                   ██    ██  ██████    ██    ██   ██  ██████    ██     ██████  ███████ 
-                                                                                       
+                /$$$$$$$$ /$$        /$$$$$$$$               /$$$$$$$$
+                |__  $$__/|__/       |__  $$__/              |__  $$__/
+                   | $$    /$$  /$$$$$$$| $$  /$$$$$$   /$$$$$$$| $$  /$$$$$$   /$$$$$$
+                   | $$   | $$ /$$_____/| $$ |____  $$ /$$_____/| $$ /$$__  $$ /$$__  $$
+                   | $$   | $$| $$      | $$  /$$$$$$$| $$      | $$| $$  \\ $$| $$$$$$$$
+                   | $$   | $$| $$      | $$ /$$__  $$| $$      | $$| $$  | $$| $$_____/
+                   | $$   | $$|  $$$$$$$| $$|  $$$$$$$|  $$$$$$$| $$|  $$$$$$/|  $$$$$$$
+                   |__/   |__/ \\_______/|__/ \\_______/ \\_______/|__/ \\______/  \\_______/
                 """;
     }
 }

@@ -102,12 +102,12 @@ public class MoveValidator {
 
                 if (!jogadaValida) {
                     System.out.println("Pressione Enter para tentar novamente...");
-                    teclado.nextLine(); // Consumir a linha restante
-                    teclado.nextLine(); // Esperar a entrada do usuário
+                    teclado.nextLine();
+                    teclado.nextLine();
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Entrada inválida. Tente novamente.");
-                teclado.nextLine(); // Consumir a entrada inválida
+                teclado.nextLine();
                 jogadaValida = false;
             }
         } while (!jogadaValida);
