@@ -1,98 +1,86 @@
 package com.hackathon.tictactoe.ui;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import com.hackathon.tictactoe.game.TicTacToeGame;
 
 import net.jorgedev.ConsoleClear;
 
+import java.util.Scanner;
+
 public class ConsoleUI {
 
-    public static String Logo() {
-        String asciiArt = """
-                ████████ ██  ██████ ████████  █████   ██████ ████████  ██████  ███████ 
-                   ██    ██ ██         ██    ██   ██ ██         ██    ██    ██ ██      
-                   ██    ██ ██         ██    ███████ ██         ██    ██    ██ █████ 
-                   ██    ██ ██         ██    ██   ██ ██         ██    ██    ██ ██    
-                   ██    ██  ██████    ██    ██   ██  ██████    ██     ██████  ███████ 
-                                                                                       
-
-                """;
-        return asciiArt;
-    }
-
-    public static String splashScreen() {
-        String asciiArt = """
-                ██   ██  █████   ██████ ██   ██  █████  ████████ ██   ██  ██████  ███    ██ 
-                ██   ██ ██   ██ ██      ██  ██  ██   ██    ██    ██   ██ ██    ██ ████   ██ 
-                ███████ ███████ ██      █████   ███████    ██    ███████ ██    ██ ██ ██  ██ 
-                ██   ██ ██   ██ ██      ██  ██  ██   ██    ██    ██   ██ ██    ██ ██  ██ ██ 
-                ██   ██ ██   ██  ██████ ██   ██ ██   ██    ██    ██   ██  ██████  ██   ████ 
-                                                                                            
-
-                Grupo 6 apresenta...
-                """;
-
-        return asciiArt;
-    }
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public static void exibirMenu() {
-        Scanner scanner = new Scanner(System.in);
         int escolha = -1;
 
         while (escolha != 3) {
             ConsoleClear.run();
-            System.out.println(Logo());
+            System.out.println(logo());
             System.out.println("=== Menu Interativo ===");
-            System.out.println("1- Iniciar Jogo");
+            System.out.println("1- Jogar Jogo da Velha");
             System.out.println("2- Sobre o Jogo");
             System.out.println("3- Sair");
             System.out.print("Escolha uma opção: ");
 
-            String input = scanner.nextLine();
-
             try {
-                if (input.trim().isEmpty()) {
-                    throw new InputMismatchException("Opção inválida. Por favor, escolha uma opção válida.");
-                }
-
-                escolha = Integer.parseInt(input);
+                escolha = Integer.parseInt(SCANNER.nextLine());
 
                 switch (escolha) {
-                    case 1:
-                        iniciarJogo();
-                        break;
-                    case 2:
-                        sobreOJogo();
-                        break;
-                    case 3:
-                        break;
-                    default:
-                        System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
-                        scanner.nextLine();
+                    case 1 -> iniciarJogo();
+                    case 2 -> sobreOJogo();
+                    case 3 -> System.out.println("Saindo do jogo... Até mais!");
+                    default -> System.out.println("Opção inválida. Escolha novamente.");
                 }
-            } catch (InputMismatchException | NumberFormatException e) {
-                System.out.println("Entrada inválida. Por favor, insira uma opção válida.");
-                scanner.nextLine();
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida! Selecione um número correspondente a uma opção.");
             }
         }
-
-        scanner.close();
     }
 
-    static void iniciarJogo() {
-        System.out.println("Jogo iniciado!");
+    private static void iniciarJogo() {
+        TicTacToeGame jogo = new TicTacToeGame();
+        jogo.executarJogo();
     }
 
-    static void sobreOJogo() {
+    private static void sobreOJogo() {
         ConsoleClear.run();
-        System.out.println(Logo());
+        System.out.println(logo());
         System.out.println(
-                "O JOGO DA VELHA é também um jogo popular e pode ser conhecido por outros nomes diferentes como:\n jogo do galo ou três em linha.");
-        voltar(new Scanner(System.in));
+                """
+                        O Jogo da Velha foi um projeto idealizado pelo professor Rogério da Turma 4 do Programa 1000 Devs,
+                        realizado pela Mesttra em parceria com a Johnson & Johnson MedTech e o Hospital Israelita Albert Einstein.
+
+                        Nosso jogo recebeu o nome de TicTacToe e foi desenvolvido utilizando:
+                        - Linguagem de programação: Java
+                        - Controle de versionamento: Git e Gitflow
+
+                        ### Membros do Grupo 6 ###
+                        - Jorge Luis: Líder Técnico
+                        - Victor Venetillo: Líder People
+                        - Arthur Ramalho
+                        - Gilvan Ribeiro
+                        - Lorena Gouveia
+                        - Hyngred Menezes
+                        - Luan Nascimento
+
+                        Versão: 1.0
+                        Build: 11/12/2024
+
+                        Pressione Enter para voltar ao menu...
+                        """);
+        SCANNER.nextLine();
     }
 
-    private static void voltar(Scanner scanner) {
-        System.out.println("\nPressione qualquer tecla para voltar ao Menu...");
-        scanner.nextLine();
+    private static String logo() {
+        return """
+                /$$$$$$$$ /$$        /$$$$$$$$               /$$$$$$$$
+                |__  $$__/|__/       |__  $$__/              |__  $$__/
+                   | $$    /$$  /$$$$$$$| $$  /$$$$$$   /$$$$$$$| $$  /$$$$$$   /$$$$$$
+                   | $$   | $$ /$$_____/| $$ |____  $$ /$$_____/| $$ /$$__  $$ /$$__  $$
+                   | $$   | $$| $$      | $$  /$$$$$$$| $$      | $$| $$  \\ $$| $$$$$$$$
+                   | $$   | $$| $$      | $$ /$$__  $$| $$      | $$| $$  | $$| $$_____/
+                   | $$   | $$|  $$$$$$$| $$|  $$$$$$$|  $$$$$$$| $$|  $$$$$$/|  $$$$$$$
+                   |__/   |__/ \\_______/|__/ \\_______/ \\_______/|__/ \\______/  \\_______/
+                """;
     }
 }
