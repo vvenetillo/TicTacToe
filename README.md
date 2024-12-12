@@ -5,7 +5,7 @@
   <a href="https://github.com/Jorgeluisreis/TicTacToe"> 
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Jorgeluisreis/TicTacToe"> 
   </a> 
-  <a href="https://github.com/SeuUsername/TicTacToe/issues"> 
+  <a href="https://github.com/Jorgeluisreis/TicTacToe/issues"> 
     <img alt="GitHub issues" src="https://img.shields.io/github/issues/Jorgeluisreis/TicTacToe"> 
   </a> 
   <a href="https://github.com/Jorgeluisreis/TicTacToe/pulls"> 
@@ -223,34 +223,40 @@ Essa abordagem proporcionou uma experiência prática de desenvolvimento ágil, 
 
 ## 📸 Imagens da Aplicação
 
+### Splash Screen
+
+<p align="center">
+  <img src="https://i.imgur.com/WlEtFhk.png" alt="Splash Screen" width="50%">
+</p>
+
 ### Menu Principal
 
 <p align="center">
-  <img src="https://i.imgur.com/6vBVDjV.png" alt="Menu Principal" width="50%">
+  <img src="https://i.imgur.com/jr2pYSp.png" alt="Menu Principal" width="50%">
 </p>
 
 ### Sobre o Jogo
 
 <p align="center">
-  <img src="https://i.imgur.com/eWhOLRF.png" alt="Sobre o Jogo" width="50%">
+  <img src="https://i.imgur.com/eDtPtJU.png" alt="Sobre o Jogo" width="50%">
 </p>
 
 ### Dentro da Partida (Tabuleiro 3x3)
 
 <p align="center">
-  <img src="https://i.imgur.com/qkXv4Fi.png" alt="Tabuleiro 3x3" width="50%">
+  <img src="https://i.imgur.com/zkcV9VR.png" alt="Tabuleiro 3x3" width="50%">
 </p>
 
 ### Dentro da Partida (Tabuleiro 10x10)
 
 <p align="center">
-  <img src="https://i.imgur.com/iF6O6Wc.png" alt="Tabuleiro 10x10" width="50%">
+  <img src="https://i.imgur.com/4fbvvVX.png" alt="Tabuleiro 10x10" width="50%">
 </p>
 
 ### Tela de Vitória
 
 <p align="center">
-  <img src="https://i.imgur.com/K8ACSsO.png" alt="Tela de Vitória" width="50%">
+  <img src="https://i.imgur.com/fyAilYy.png" alt="Tela de Vitória" width="50%">
 </p>
 
 ## 📥 Requisitos Mínimos
