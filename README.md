@@ -31,8 +31,9 @@ O **TicTacToe** é um projeto colaborativo desenvolvido em uma Hackathon, com o 
 
 ## 🛠️ Tecnologias Utilizadas
 
-- ![Java](https://img.shields.io/badge/Java-21-blue) - Linguagem de programação utilizada
+- ![Java](https://img.shields.io/badge/Java-21-red) - Linguagem de programação utilizada
 - ![Maven](https://img.shields.io/badge/Maven-4.0-blue) - Gerenciador de dependências
+- ![Jansi](https://img.shields.io/badge/Jansi-2.4.1-white) - Gerenciamento de Cores do CLI
 - ![CLI](https://img.shields.io/badge/CLI-Interface-Informática) - Interface de linha de comando utilizada para interação com o jogo
 
 ## 🌐 Funcionalidades
