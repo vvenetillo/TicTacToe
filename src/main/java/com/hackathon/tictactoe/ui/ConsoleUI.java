@@ -6,6 +6,9 @@ import net.jorgedev.ConsoleClear;
 
 import java.util.Scanner;
 
+import org.fusesource.jansi.Ansi;
+import org.fusesource.jansi.AnsiConsole;
+
 public class ConsoleUI {
 
     private static final Scanner SCANNER = new Scanner(System.in);
@@ -44,36 +47,48 @@ public class ConsoleUI {
 
     private static void sobreOJogo() {
         ConsoleClear.run();
+        AnsiConsole.systemInstall();
+
         System.out.println(logo());
-        System.out.println(
-                """
-                        O Jogo da Velha foi um projeto idealizado pelo professor Rogério da Turma 4 do Programa 1000 Devs,
-                        realizado pela Mesttra em parceria com a Johnson & Johnson MedTech e o Hospital Israelita Albert Einstein.
+        System.out.println(Ansi.ansi()
+                .fgBrightDefault().a("O Jogo da Velha foi um projeto idealizado pelo professor ").reset()
+                .fgBrightDefault().a("Rogério Freitas da Turma 4 do Programa 1000Devs,\n").reset()
+                .fgBrightDefault().a("realizado pela ").reset()
+                .fgBrightMagenta().a("mesttra ").reset()
+                .fgBrightDefault().a("em parceria com a ").reset()
+                .fgBrightRed().a("Johnson & Johnson MedTech ").reset()
+                .fgBrightDefault().a("e o ").reset()
+                .fgBrightBlue().a("Hospital Israelita Albert Einstein.\n\n").reset());
 
-                        Nosso jogo recebeu o nome de TicTacToe e foi desenvolvido utilizando:
-                        - Linguagem de programação: Java
-                        - Controle de versionamento: Git e Gitflow
+        System.out.println(Ansi.ansi()
+                .fgBrightDefault().a("Nosso jogo recebeu o nome de TicTacToe e foi desenvolvido utilizando:\n").reset()
+                .fgBrightDefault().a("- Linguagem de programação: Java com Maven\n").reset()
+                .fgBrightDefault().a("- Controle de versionamento: Git e Gitflow\n\n").reset());
 
-                        ### Membros do Grupo 6 ###
-                        - Jorge Luis: Líder Técnico
-                        - José Victor: Líder People
-                        - Arthur Ramalho
-                        - Gilvan Ribeiro
-                        - Lorena Gouveia
-                        - Hyngred Menezes
-                        - Luan Nascimento
+        System.out.println(Ansi.ansi()
+                .fgBrightDefault().a("### Membros do Grupo 6 ###\n").reset()
+                .fgBrightBlue().a("- Jorge Luis: Líder Técnico\n").reset()
+                .fgBrightGreen().a("- José Victor: Líder People\n").reset()
+                .fgBrightDefault().a("- Arthur Ramalho\n").reset()
+                .fgBrightDefault().a("- Gilvan Ribeiro\n").reset()
+                .fgBrightDefault().a("- Lorena Gouveia\n").reset()
+                .fgBrightDefault().a("- Hyngred Menezes\n").reset()
+                .fgBrightDefault().a("- Luan Nascimento\n\n").reset());
 
-                        Versão: 1.0
-                        Build: 11/12/2024
+        System.out.println(Ansi.ansi()
+                .fgBrightDefault().a("Versão: 1.0\n").reset()
+                .fgBrightDefault().a("Build: 12/12/2024\n\n").reset());
 
-                        Pressione Enter para voltar ao menu...
-                        """);
+        System.out.println(Ansi.ansi()
+                .fgBrightGreen().a("Pressione Enter para voltar ao menu...\n").reset());
+
+        AnsiConsole.systemUninstall();
         SCANNER.nextLine();
     }
 
     private static String logo() {
         return """
-                /$$$$$$$$ /$$        /$$$$$$$$               /$$$$$$$$
+                 /$$$$$$$$ /$$        /$$$$$$$$               /$$$$$$$$
                 |__  $$__/|__/       |__  $$__/              |__  $$__/
                    | $$    /$$  /$$$$$$$| $$  /$$$$$$   /$$$$$$$| $$  /$$$$$$   /$$$$$$
                    | $$   | $$ /$$_____/| $$ |____  $$ /$$_____/| $$ /$$__  $$ /$$__  $$
