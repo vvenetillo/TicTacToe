@@ -278,20 +278,17 @@ mvn install:install-file -Dfile="DIRETÓRIO\lib\ConsoleClear-1.0.0.jar" -DgroupI
 ## Tutorial de Instalação
 
 1.  Faça o download da aplicação clicando [aqui](https://github.com/Jorgeluisreis/TicTacToe/releases)
-2.  Descompacte o arquivo baixado usando o WinRAR ou 7-Zip.
-3.  Mova a pasta descompactada para um local de sua preferência.
-4.  Abra o terminal na pasta onde o arquivo foi descompactado e execute:
+2.  Escolha entre o arquivo executável **Windows (exe)** ou o **.jar**.
+3.  Caso escolha o **.jar**, abra o terminal na pasta onde o arquivo foi baixado e execute:
     ```bash
     java -jar TicTacToe.jar
     ```
-    ou execute o **.exe** que é o **.jar** convertido para executável.
 
 ### Linux
 
 1.  Faça o download da aplicação clicando [aqui](https://github.com/SeuUsername/TicTacToe/releases)
-2.  Descompacte o arquivo baixado usando o `unzip` ou qualquer outra ferramenta de sua preferência.
-3.  Mova a pasta descompactada para um local de sua escolha no sistema.
-4.  Torne o arquivo executável e execute o jogo:
+2.  Mova o arquivo .jar para um local de sua escolha no sistema.
+3.  Torne o arquivo executável e execute o jogo:
     ```bash
     chmod +x TicTacToe.jar
     java -jar TicTacToe.jar
