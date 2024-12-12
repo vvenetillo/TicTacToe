@@ -23,7 +23,7 @@
 
 ## 🎯 Proósito do Projeto
 
-O projeto **TicTacToe** é uma iniciativa da Hackathon de Dezembro de 2024 da turma 4 do **Programa 1000 Devs** pela [mesttra](https://www.mesttra.com/) em parceria com a [J&J Medtech](https://www.jnjmedtech.com/pt-br) e o [
+O projeto **TicTacToe** é uma iniciativa da Hackathon de Dezembro de 2024 da Turma 4 do **Programa 1000Devs** pela [mesttra](https://www.mesttra.com/) em parceria com a [Johnson & Johnson Medtech](https://www.jnjmedtech.com/pt-br) e o [
 [Hospital Israelita Albert Einstein](https://www.einstein.br/n/). O Professor [Rogério de Freitas](https://www.linkedin.com/in/rogerio-freitas-ribeiro-690a9712/) organizou o evento para ser um Jogo da Velha com desafios técnicos e de lógica, onde os participantes devem integrar as funcionalidades em equipe. O nome dado ao projeto é **TicTacToe**.
 
 ## 📚 Conceito
