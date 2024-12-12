@@ -14,7 +14,7 @@
   <a href="https://github.com/Jorgeluisreis/TicTacToe"> 
     <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Jorgeluisreis/TicTacToe"> 
   </a> 
-  <a href="https://github.com/Jorgeluisreis/TicTacToe"> 
+  <a href="https://github.com/Jorgeluisreis/TicTacToe?tab=MIT-1-ov-file"> 
     <img alt="License" src="https://img.shields.io/github/license/Jorgeluisreis/TicTacToe"> 
   </a> 
 </p>
