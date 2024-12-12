@@ -47,77 +47,16 @@ O **TicTacToe** é um projeto colaborativo que une aprendizado prático e trabal
 
 Abaixo estão os integrantes da equipe **TicTacToe**. Cada um contribuiu de forma significativa para o sucesso do projeto:
 
-<style>
-  .team-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-  }
+<div align="center">
 
-  .team-member {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 15px;
-    transition: transform 0.2s;
-    background-color: transparent;
-  }
+| ![Jorge Luis](https://media.licdn.com/dms/image/v2/D4E03AQESebz2VylEGw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1718233854293?e=1739404800&v=beta&t=kCFe18zj1w3bOaAp8dVL_OjPrqOZK3AeMqmRJKajld8) | ![Arthur Ramalho Freire](https://media.licdn.com/dms/image/v2/D4D03AQHFXwqaRPA_cA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1718159111276?e=2147483647&v=beta&t=-pMrVP85MizZlV7qc7vKfmOkHBGJ4_p0XRN7cP2GiEc) | ![José Victor Venetillo](https://media.licdn.com/dms/image/v2/D4D03AQE32C6ALF_HjA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1684169770688?e=1739404800&v=beta&t=tLscXtRgKFrk_TOTNoI1t0b7THTwe3elWy6CBL77hWQ) |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                                                      [Jorge Luis](https://www.linkedin.com/in/ojorge-luis/)                                                                                       |                                                                                  [Arthur Ramalho Freire](https://www.linkedin.com/in/arthurramalhofreire/)                                                                                   |                                                                                       [José Victor Venetillo](https://www.linkedin.com/in/vvenetillo/)                                                                                       |
 
-  .team-member:hover {
-    transform: scale(1.05);
-  }
+| ![Gilvan Ribeiro](https://media.licdn.com/dms/image/v2/D4D03AQEj92YKf_3InA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727309792942?e=1739404800&v=beta&t=hqN-_eL3b4C_R3db4KTg4oH5kVA5OFVeOPLEcplyLQg) | ![Luan Nascimento](https://media.licdn.com/dms/image/v2/D4D03AQFtjB_gTqbsyA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1703275597793?e=1739404800&v=beta&t=ZoOYbNcTfpruLu6I-s7WaUuykkNzeXfHkFMpnpLB6QA) | ![Hyngred Menezes](https://media.licdn.com/dms/image/v2/D5603AQHZ5spl3s0nVQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1731624726621?e=1739404800&v=beta&t=4_WYsATq7SRm5o-w6NPui3VFAxGyMZ7eMcEZOgkXWuE) |
+| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                                                [Gilvan Ribeiro](https://www.linkedin.com/in/gilvan-ribeiro-573823231/)                                                                                |                                                                                     [Luan Nascimento](https://www.linkedin.com/in/nascmentoluan/)                                                                                      |                                                                               [Hyngred Menezes](https://www.linkedin.com/in/hyngred-menezes-363540327/)                                                                                |
 
-  .team-member img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-
-  .team-member h4 {
-    font-size: 16px;
-    margin: 5px 0;
-  }
-
-  .team-member a {
-    text-decoration: none;
-    color: #0073e6;
-    font-weight: bold;
-  }
-
-  .team-member a:hover {
-    text-decoration: underline;
-  }
-</style>
-
-<div class="team-container">
-  <div class="team-member">
-    <img src="https://media.licdn.com/dms/image/v2/D4E03AQESebz2VylEGw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1718233854293?e=1739404800&v=beta&t=kCFe18zj1w3bOaAp8dVL_OjPrqOZK3AeMqmRJKajld8" alt="Jorge Luis">
-    <h4><a href="https://www.linkedin.com/in/ojorge-luis/" target="_blank">Jorge Luis</a></h4>
-  </div>
-  <div class="team-member">
-    <img src="https://media.licdn.com/dms/image/v2/D4D03AQHFXwqaRPA_cA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1718159111276?e=2147483647&v=beta&t=-pMrVP85MizZlV7qc7vKfmOkHBGJ4_p0XRN7cP2GiEc" alt="Arthur Ramalho Freire">
-    <h4><a href="https://www.linkedin.com/in/arthurramalhofreire/" target="_blank">Arthur Ramalho Freire</a></h4>
-  </div>
-  <div class="team-member">
-    <img src="https://media.licdn.com/dms/image/v2/D4D03AQE32C6ALF_HjA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1684169770688?e=1739404800&v=beta&t=tLscXtRgKFrk_TOTNoI1t0b7THTwe3elWy6CBL77hWQ" alt="José Victor Venetillo">
-    <h4><a href="https://www.linkedin.com/in/vvenetillo/" target="_blank">José Victor Venetillo</a></h4>
-  </div>
-  <div class="team-member">
-    <img src="https://media.licdn.com/dms/image/v2/D4D03AQEj92YKf_3InA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727309792942?e=1739404800&v=beta&t=hqN-_eL3b4C_R3db4KTg4oH5kVA5OFVeOPLEcplyLQg" alt="Gilvan Ribeiro">
-    <h4><a href="https://www.linkedin.com/in/gilvan-ribeiro-573823231/" target="_blank">Gilvan Ribeiro</a></h4>
-  </div>
-  <div class="team-member">
-    <img src="https://media.licdn.com/dms/image/v2/D4D03AQFtjB_gTqbsyA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1703275597793?e=1739404800&v=beta&t=ZoOYbNcTfpruLu6I-s7WaUuykkNzeXfHkFMpnpLB6QA" alt="Luan Nascimento">
-    <h4><a href="https://www.linkedin.com/in/nascmentoluan/" target="_blank">Luan Nascimento</a></h4>
-  </div>
-  <div class="team-member">
-    <img src="https://media.licdn.com/dms/image/v2/D5603AQHZ5spl3s0nVQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1731624726621?e=1739404800&v=beta&t=4_WYsATq7SRm5o-w6NPui3VFAxGyMZ7eMcEZOgkXWuE" alt="Hyngred Menezes">
-    <h4><a href="https://www.linkedin.com/in/hyngred-menezes-363540327/" target="_blank">Hyngred Menezes</a></h4>
-  </div>
 </div>
 
 ## 📓 Documentação
