@@ -89,7 +89,7 @@ public class TicTacToeGame {
                System.out.printf("Seu caractere: %s | Caractere do Computador: %s\n",
                      Ansi.ansi().fgBrightGreen().a(caractereUsuario).reset(),
                      Ansi.ansi().fgBrightRed().a(caractereComputador).reset());
-               exibirArteASCIIJogador();
+               Display.exibirArteASCIIJogador();
                esperarEnter(teclado);
                jogoContinua = false;
             } else if (teveEmpate(board.getTabuleiro())) {
@@ -114,7 +114,7 @@ public class TicTacToeGame {
                      Ansi.ansi().fgBrightGreen().a(caractereUsuario).reset(),
                      Ansi.ansi().fgBrightRed().a(caractereComputador).reset());
 
-               exibirArteASCIIComputador();
+               Display.exibirArteASCIIComputador();
                esperarEnter(teclado);
                jogoContinua = false;
             } else if (teveEmpate(board.getTabuleiro())) {
@@ -198,31 +198,6 @@ public class TicTacToeGame {
       System.out.println("Computador está jogando...");
       int[] jogada = moveValidator.obterJogadaComputador(tabuleiro);
       return board.retornarTabuleiroAtualizado(tabuleiro, jogada, caractereComputador);
-   }
-
-   private void exibirArteASCIIJogador() {
-      System.out.println("Parabéns! Você venceu!");
-      System.out.println("     \\O/");
-      System.out.println("      |");
-      System.out.println("     / \\");
-   }
-
-   private void exibirArteASCIIComputador() {
-      System.out.println("O computador venceu!");
-      System.out.println("    +---------------------+");
-      System.out.println("    | +-----------------+ |");
-      System.out.println("    | |                 | |");
-      System.out.println("    | |      0   0      | |");
-      System.out.println("    | |        -        | |");
-      System.out.println("    | |      \\___/      | |");
-      System.out.println("    | |                 | |");
-      System.out.println("    | +-----------------+ |");
-      System.out.println("    +--------+---+--------+");
-      System.out.println("    _______|/     \\|_______");
-      System.out.println("   /                        \\");
-      System.out.println("  /   ********************   \\");
-      System.out.println(" /  ***********************   \\");
-      System.out.println("+------------------------------+");
    }
 
    private void esperarEnter(Scanner teclado) {

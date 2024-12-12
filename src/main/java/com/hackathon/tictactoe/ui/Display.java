@@ -44,12 +44,37 @@ public class Display {
         }
     }
 
+    public static void exibirArteASCIIJogador() {
+        System.out.println("\nParabéns! Você venceu!");
+        System.out.println("     \\O/");
+        System.out.println("      |");
+        System.out.println("\n     / \\");
+    }
+
+    public static void exibirArteASCIIComputador() {
+        System.out.println("\nO computador venceu!");
+        System.out.println("    +---------------------+");
+        System.out.println("    | +-----------------+ |");
+        System.out.println("    | |                 | |");
+        System.out.println("    | |      0   0      | |");
+        System.out.println("    | |        -        | |");
+        System.out.println("    | |      \\___/      | |");
+        System.out.println("    | |                 | |");
+        System.out.println("    | +-----------------+ |");
+        System.out.println("    +--------+---+--------+");
+        System.out.println("    _______|/     \\|_______");
+        System.out.println("   /                        \\");
+        System.out.println("  /   ********************   \\");
+        System.out.println(" /  ***********************   \\");
+        System.out.println("\n+------------------------------+");
+    }
+
     public static void exibirEmpate() {
         System.out.println("\nOcorreu um empate!");
         System.out.println(" _______       _______ ");
         System.out.println("|       |     |       |");
         System.out.println("|   0   |  x  |   0   |");
-        System.out.println("|_______|     |_______|");
+        System.out.println("\n|_______|     |_______|");
 
     }
 
