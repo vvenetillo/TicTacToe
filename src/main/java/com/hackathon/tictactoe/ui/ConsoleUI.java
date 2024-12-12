@@ -52,13 +52,15 @@ public class ConsoleUI {
         System.out.println(Display.logo());
         System.out.println(Ansi.ansi()
                 .fgBrightDefault().a("O Jogo da Velha foi um projeto idealizado pelo professor ").reset()
-                .fgBrightDefault().a("Rogério Freitas da Turma 4 do Programa 1000Devs,\n").reset()
+                .fgBrightGreen().a("Rogério Freitas").reset()
+                .fgBrightDefault().a(", da Turma 4 do Programa 1000Devs,\n").reset()
                 .fgBrightDefault().a("realizado pela ").reset()
                 .fgBrightMagenta().a("mesttra ").reset()
                 .fgBrightDefault().a("em parceria com a ").reset()
                 .fgBrightRed().a("Johnson & Johnson MedTech ").reset()
                 .fgBrightDefault().a("e o ").reset()
-                .fgBrightBlue().a("Hospital Israelita Albert Einstein.\n\n").reset());
+                .fgBrightBlue().a("Hospital Israelita Albert Einstein").reset()
+                .fgBrightDefault().a(".\n\n").reset());
 
         System.out.println(Ansi.ansi()
                 .fgBrightDefault().a("Nosso jogo recebeu o nome de TicTacToe e foi desenvolvido utilizando:\n").reset()
