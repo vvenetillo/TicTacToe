@@ -18,7 +18,7 @@ public class ConsoleUI {
 
         while (escolha != 3) {
             ConsoleClear.run();
-            System.out.println(logo());
+            System.out.println(Display.logo());
             System.out.println("=== Menu Interativo ===");
             System.out.println("1- Jogar Jogo da Velha");
             System.out.println("2- Sobre o Jogo");
@@ -49,7 +49,7 @@ public class ConsoleUI {
         ConsoleClear.run();
         AnsiConsole.systemInstall();
 
-        System.out.println(logo());
+        System.out.println(Display.logo());
         System.out.println(Ansi.ansi()
                 .fgBrightDefault().a("O Jogo da Velha foi um projeto idealizado pelo professor ").reset()
                 .fgBrightDefault().a("Rogério Freitas da Turma 4 do Programa 1000Devs,\n").reset()
@@ -84,18 +84,5 @@ public class ConsoleUI {
 
         AnsiConsole.systemUninstall();
         SCANNER.nextLine();
-    }
-
-    private static String logo() {
-        return """
-                 /$$$$$$$$ /$$        /$$$$$$$$               /$$$$$$$$
-                |__  $$__/|__/       |__  $$__/              |__  $$__/
-                   | $$    /$$  /$$$$$$$| $$  /$$$$$$   /$$$$$$$| $$  /$$$$$$   /$$$$$$
-                   | $$   | $$ /$$_____/| $$ |____  $$ /$$_____/| $$ /$$__  $$ /$$__  $$
-                   | $$   | $$| $$      | $$  /$$$$$$$| $$      | $$| $$  \\ $$| $$$$$$$$
-                   | $$   | $$| $$      | $$ /$$__  $$| $$      | $$| $$  | $$| $$_____/
-                   | $$   | $$|  $$$$$$$| $$|  $$$$$$$|  $$$$$$$| $$|  $$$$$$/|  $$$$$$$
-                   |__/   |__/ \\_______/|__/ \\_______/ \\_______/|__/ \\______/  \\_______/
-                """;
     }
 }
