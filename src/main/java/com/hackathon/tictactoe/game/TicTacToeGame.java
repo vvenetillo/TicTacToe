@@ -8,6 +8,7 @@ import net.jorgedev.ConsoleClear;
 import com.hackathon.tictactoe.config.GameConfig;
 
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 import org.fusesource.jansi.Ansi;
@@ -76,13 +77,15 @@ public class TicTacToeGame {
       boolean jogoContinua = true;
 
       while (jogoContinua) {
-         Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro());
+         Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro(), caractereUsuario,
+               caractereComputador);
 
          if (vezUsuario) {
             board.setTabuleiro(processarVezUsuario(teclado, board.getTabuleiro(), caractereUsuario));
 
             if (teveGanhador(board.getTabuleiro(), caractereUsuario)) {
-               Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro());
+               Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro(), caractereUsuario,
+                     caractereComputador);
                System.out.printf("Seu caractere: %s | Caractere do Computador: %s\n",
                      Ansi.ansi().fgBrightGreen().a(caractereUsuario).reset(),
                      Ansi.ansi().fgBrightRed().a(caractereComputador).reset());
@@ -90,7 +93,8 @@ public class TicTacToeGame {
                esperarEnter(teclado);
                jogoContinua = false;
             } else if (teveEmpate(board.getTabuleiro())) {
-               Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro());
+               Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro(), caractereUsuario,
+                     caractereComputador);
                System.out.printf("Seu caractere: %s | Caractere do Computador: %s\n",
                      Ansi.ansi().fgBrightGreen().a(caractereUsuario).reset(),
                      Ansi.ansi().fgBrightRed().a(caractereComputador).reset());
@@ -104,7 +108,8 @@ public class TicTacToeGame {
             board.setTabuleiro(processarVezComputador(board.getTabuleiro(), caractereComputador));
 
             if (teveGanhador(board.getTabuleiro(), caractereComputador)) {
-               Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro());
+               Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro(), caractereUsuario,
+                     caractereComputador);
                System.out.printf("Seu caractere: %s | Caractere do Computador: %s\n",
                      Ansi.ansi().fgBrightGreen().a(caractereUsuario).reset(),
                      Ansi.ansi().fgBrightRed().a(caractereComputador).reset());
@@ -113,7 +118,8 @@ public class TicTacToeGame {
                esperarEnter(teclado);
                jogoContinua = false;
             } else if (teveEmpate(board.getTabuleiro())) {
-               Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro());
+               Display.exibirTabuleiro(board.getTabuleiro(), board.getTamanhoTabuleiro(), caractereUsuario,
+                     caractereComputador);
                Display.exibirEmpate();
                esperarEnter(teclado);
                jogoContinua = false;
@@ -169,12 +175,14 @@ public class TicTacToeGame {
 
    private char obterCaractereComputador(Scanner teclado, char caractereUsuario) {
       String caracteresAceitos = "XO0UC";
-      for (char c : caracteresAceitos.toCharArray()) {
-         if (c != caractereUsuario) {
-            return c;
-         }
-      }
-      return ' ';
+
+      String caracteresDisponiveis = caracteresAceitos.replace(String.valueOf(caractereUsuario), "");
+
+      Random random = new Random();
+
+      char caractereComputador = caracteresDisponiveis.charAt(random.nextInt(caracteresDisponiveis.length()));
+
+      return caractereComputador;
    }
 
    private char[][] processarVezUsuario(Scanner teclado, char[][] tabuleiro, char caractereUsuario) {
