@@ -6,7 +6,8 @@ import net.jorgedev.ConsoleClear;
 
 public class Display {
 
-    public static void exibirTabuleiro(char[][] tabuleiro, int tamanhoTabuleiro) {
+    public static void exibirTabuleiro(char[][] tabuleiro, int tamanhoTabuleiro, char caractereUsuario,
+            char caractereComputador) {
         ConsoleClear.run();
         System.out.println(Display.logo());
         System.out.println("\nTabuleiro Atual:");
@@ -15,9 +16,9 @@ public class Display {
             for (int j = 0; j < tamanhoTabuleiro; j++) {
                 char caractere = tabuleiro[i][j];
 
-                if (caractere == 'X') {
+                if (caractere == caractereUsuario) {
                     System.out.print(Ansi.ansi().fgBrightGreen().a("  " + caractere + "  ").reset());
-                } else if (caractere == 'O') {
+                } else if (caractere == caractereComputador) {
                     System.out.print(Ansi.ansi().fgBrightRed().a("  " + caractere + "  ").reset());
                 } else {
                     System.out.print("  " + caractere + "  ");
