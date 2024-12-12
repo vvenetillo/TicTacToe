@@ -16,14 +16,12 @@
 
 
     <dependencies>
-        <!-- Dependência do ConsoleClear -->
         <dependency>
             <groupId>net.jorgedev</groupId>
             <artifactId>ConsoleClear</artifactId>
             <version>1.0.0</version>
         </dependency>
 
-        <!-- Dependência do Jansi -->
         <dependency>
             <groupId>org.fusesource.jansi</groupId>
             <artifactId>jansi</artifactId>
@@ -33,7 +31,6 @@
 
     <build>
         <plugins>
-            <!-- Plugin para criar um JAR executável com todas as dependências -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>

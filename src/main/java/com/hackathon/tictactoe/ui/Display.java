@@ -1,5 +1,7 @@
 package com.hackathon.tictactoe.ui;
 
+import org.fusesource.jansi.Ansi;
+
 import net.jorgedev.ConsoleClear;
 
 public class Display {
@@ -11,12 +13,22 @@ public class Display {
 
         for (int i = 0; i < tamanhoTabuleiro; i++) {
             for (int j = 0; j < tamanhoTabuleiro; j++) {
-                System.out.print("  " + tabuleiro[i][j] + "  ");
+                char caractere = tabuleiro[i][j];
+
+                if (caractere == 'X') {
+                    System.out.print(Ansi.ansi().fgBrightGreen().a("  " + caractere + "  ").reset());
+                } else if (caractere == 'O') {
+                    System.out.print(Ansi.ansi().fgBrightRed().a("  " + caractere + "  ").reset());
+                } else {
+                    System.out.print("  " + caractere + "  ");
+                }
+
                 if (j < tamanhoTabuleiro - 1) {
                     System.out.print("|");
                 }
             }
             System.out.println();
+
             if (i < tamanhoTabuleiro - 1) {
                 for (int k = 0; k < tamanhoTabuleiro; k++) {
                     System.out.print("-----");
