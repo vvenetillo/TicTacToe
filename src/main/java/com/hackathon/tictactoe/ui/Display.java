@@ -3,10 +3,17 @@ package com.hackathon.tictactoe.ui;
 import java.util.Random;
 
 import org.fusesource.jansi.Ansi;
+import org.fusesource.jansi.AnsiConsole;
 
 import net.jorgedev.ConsoleClear;
 
 public class Display {
+
+    public static void inicializarJansi() {
+        if (!AnsiConsole.isInstalled()) {
+            AnsiConsole.systemInstall();
+        }
+    }
 
     public static void exibirTabuleiro(char[][] tabuleiro, int tamanhoTabuleiro, char caractereUsuario,
             char caractereComputador) {
@@ -198,11 +205,11 @@ public class Display {
     }
 
     public static String splashScreen() {
+        inicializarJansi();
         String palavraColorida = palavraColorida();
-        String textoGrupo = "\u001B[0m" + "                                            Grupo 6 apresenta..."
-                + "\u001B[0m";
+        String textoGrupo = "                                            Grupo 6 apresenta...\n\n";
 
-        return palavraColorida + "\n\n" + textoGrupo;
+        return palavraColorida + textoGrupo;
     }
 
     public static String logo() {
@@ -216,31 +223,29 @@ public class Display {
         if (corEscolhida < 5) {
             return gerarCorAleatoria();
         } else {
-            return "\u001B[0m";
+            return Ansi.ansi().reset().toString();
         }
     }
 
     public static String gerarCorAleatoria() {
         Random random = new Random();
-        int corEscolhida = random.nextInt(7);
+        int corEscolhida = random.nextInt(6);
+
         switch (corEscolhida) {
             case 0:
-                return "\u001B[31m";
+                return Ansi.ansi().fg(Ansi.Color.RED).toString();
             case 1:
-                return "\u001B[32m";
+                return Ansi.ansi().fg(Ansi.Color.GREEN).toString();
             case 2:
-                return "\u001B[33m";
+                return Ansi.ansi().fg(Ansi.Color.YELLOW).toString();
             case 3:
-                return "\u001B[34m";
+                return Ansi.ansi().fg(Ansi.Color.BLUE).toString();
             case 4:
-                return "\u001B[35m";
+                return Ansi.ansi().fg(Ansi.Color.MAGENTA).toString();
             case 5:
-                return "\u001B[36m";
-            case 6:
-                return "\u001B[37m";
+                return Ansi.ansi().fg(Ansi.Color.CYAN).toString();
             default:
-                return "\u001B[0m";
+                return Ansi.ansi().reset().toString();
         }
     }
-
 }
