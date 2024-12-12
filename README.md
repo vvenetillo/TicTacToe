@@ -38,7 +38,7 @@ O **TicTacToe** é um projeto colaborativo que une aprendizado prático e trabal
 
 ## 🌐 Funcionalidades
 
-- **Modo de Jogo para Dois Jogadores** - Permite que dois jogadores disputem uma partida de Jogo da Velha pela CLI.
+- **Jogue contra o Computador** - Permite qvocê jogue contre a máquina uma partida de Jogo da Velha pela CLI.
 - **Exibição Gráfica no Console** - Interface simples e limpa para visualização do tabuleiro de jogo.
 - **Verificação de Vencedor** - O jogo verifica automaticamente se há um vencedor após cada jogada.
 - **Reinício de Jogo** - Permite que os jogadores reiniciem uma nova partida após o término.
